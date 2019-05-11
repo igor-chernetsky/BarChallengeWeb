@@ -1,0 +1,12 @@
+.container {
+  position: relative;
+}
+
+.close-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+  font-size: 20px;
+  color: #fff;
+}

@@ -1,0 +1,28 @@
+<div class="container">
+  <mat-card class="prouct-card">
+    <div class="placeholder">
+      <i class="fa fa-image"></i>
+    </div>
+    <img *ngIf="product.image" [src]="product.image" class="product-image">
+  </mat-card>
+  <div class="details" *ngIf="state !== 'edit'; else editBlock">
+    <h1>{{product.name}}</h1>
+    <hr/>
+    <p>{{product.description}}</p>
+  </div>
+  <ng-template #editBlock>
+    <form class="form" (submit)="saveProduct()">
+      <mat-form-field class="form-data">
+        <input matInput placeholder="Coctail Name" id="name" name="name" [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
+      </mat-form-field>
+      <mat-form-field class="form-data">
+        <textarea matInput placeholder="Description" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
+        </textarea>
+      </mat-form-field>
+      <div class="actions">
+        <button mat-button (click)="changeImage()">{{product.image ? 'Change Image' : 'Add Image'}}</button>
+        <button mat-button type="submit">Save</button>
+      </div>
+    </form>
+  </ng-template>
+</div>

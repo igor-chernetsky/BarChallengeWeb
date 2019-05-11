@@ -1,0 +1,8 @@
+<h3>Name</h3>
+{{challenge.name}}
+<h3>Products</h3>
+<products-list *ngIf="challenge.products" [products]="challenge.products"></products-list>
+<button mat-button (click)="addProduct()">Add Product</button>
+<h3>Rewards</h3>
+<products-list *ngIf="challenge.rewards" [products]="challenge.rewards"></products-list>
+<button mat-button (click)="addReward()">Add Reward</button>

@@ -1,0 +1,64 @@
+/* this file will be extracted to main dist folder and is imported in index.html */
+/* This file is for setting global styles  */
+@import '~@angular/material/theming';
+@import "~@angular/material/prebuilt-themes/deeppurple-amber.css";
+@import '~font-awesome/css/font-awesome.css';
+@import 'variables';
+@import 'breakpoint';
+
+body {
+  background-color: $gray-darkest;
+}
+
+nav {
+  margin-top: 16px;
+}
+
+h2 {
+  color: #fff;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: $thin;
+  color: #fff;
+}
+
+nav a {
+  background-color: $nav-button-color;
+  color: white;
+  padding: 8px 16px;
+  margin: 8px;
+  vertical-align: middle;
+  line-height: 1.25;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+// it's needed for ngx-carousel https://github.com/lukasz-galka/ngx-gallery
+.mat-sidenav-container, .mat-sidenav-content, .mat-tab-body-content {
+    transform: none !important;
+}
+
+.no-decoration {
+  text-decoration: none;
+}
+
+.mat-form-field {
+  color: #fff;
+  .mat-form-field-label {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .mat-form-field-underline {
+    background-color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+.mat-button {
+  background-color: #fff;
+}
+
+.mat-dialog-container {
+  background-color: #333;
+}

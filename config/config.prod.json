@@ -1,0 +1,12 @@
+{
+  "firebase": {
+    "apiKey": "",
+    "authDomain": "XXXXXX.firebaseapp.com",
+    "databaseURL": "https://XXXXXX.firebaseio.com",
+    "projectId": "XXXXXX",
+    "storageBucket": "XXXXXX.appspot.com",
+    "messagingSenderId": "000000000000"
+  },
+  "gtmKey" : "GTM-XXXXXXX",
+  "apiUrl": "http://localhost:8001"
+}

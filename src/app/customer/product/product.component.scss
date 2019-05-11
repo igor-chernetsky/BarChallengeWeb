@@ -1,0 +1,53 @@
+@import '~styles/variables';
+@import '~styles/breakpoint';
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+  display: flex;
+  @include breakpoint(lt-sm) {
+    flex-direction: column;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin: 10px 0;
+    color: #fff;
+    font-weight: $semi-bold;
+  }
+  h2 {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #fff;
+    font-weight: $semi-bold;
+  }
+
+  .prouct-card {
+    display: flex;
+    position: relative;
+    height: 300px;
+    width: 100%;
+    max-width: 300px;
+    overflow: hidden;
+
+    .product-image {
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      min-width: 100%;
+      min-height: 100%;
+    }
+  }
+  .details {
+    width: 100%;
+    @include breakpoint(sm) {
+      margin-left: 20px;
+    }
+  }
+  .logo {
+    width: 100px;
+    max-height: 100px;
+    margin-right: 20px;
+  }
+}

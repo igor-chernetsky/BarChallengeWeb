@@ -1,0 +1,11 @@
+<div class="products-list" *ngIf="products">
+  <a (click)="productSelected($event, product)" *ngFor="let product of products">
+    <mat-card class="prouct-card">
+      <img *ngIf="product.image" [src]="product.image" class="product-image">
+      <img *ngIf="!product.image" src="/assets/img/default-coctail.svg" class="placeholder-image">
+      <h4>{{product.name}}</h4>
+      <a class="remove-icon" *ngIf="providerMode" (click)="removeProduct(product)"><i class="fa fa-trash"></i></a>
+    </mat-card>
+  </a>
+  <a class="new-product" [routerLink]="['/profile', 'product']" *ngIf="providerMode">+</a>
+</div>

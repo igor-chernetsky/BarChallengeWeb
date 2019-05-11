@@ -1,0 +1,46 @@
+@import '~styles/variables';
+@import '~styles/breakpoint';
+
+.products-list {
+  display: flex;
+  transition: margin-left 0.3s;
+  &.block-animation {
+    transition: none;
+  }
+}
+
+
+.container {
+  position: relative;
+  overflow: hidden;
+
+  @mixin fa-navigation() {
+    position: absolute;
+    font-size: 50px;
+    color: #fff;
+    z-index: 1;
+    cursor: pointer;
+    height: 100%;
+    padding: 0 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &.disabled {
+      color: rgba(255, 255, 255, 0.2);
+      cursor: default;
+    }
+  }
+
+  .fa-angle-right {
+    right: 0;
+    @include fa-navigation();
+    background-image: linear-gradient(to left, #000, transparent);
+  }
+
+  .fa-angle-left {
+    left: 0;
+    @include fa-navigation();
+    background-image: linear-gradient(to right, #000, transparent);
+  }
+}

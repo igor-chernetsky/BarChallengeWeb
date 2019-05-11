@@ -1,0 +1,27 @@
+@import '~styles/variables';
+
+.logo {
+  text-decoration: none;
+  width: 134px;
+  height: 50px;
+  display: block;
+  background-image: url('/assets/img/bc-white.png');
+  background-size: cover;
+}
+
+.container {
+  max-width: 1100px;
+  margin: auto;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.lins-list {
+  display: flex;
+  li {
+    margin-left: 5px;
+  }
+}

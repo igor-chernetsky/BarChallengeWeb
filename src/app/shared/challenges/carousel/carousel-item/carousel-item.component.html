@@ -1,0 +1,5 @@
+<mat-card class="prouct-card" [ngClass]="{'extra': isExtra, 'finished': item.status === 'done'}">
+  <div class="product-image"><img [src]="item.image"></div>
+  <img *ngIf="isExtra" [src]="'/assets/img/reward_ru.png'" class="reward-img">
+  <a [routerLink]="['product', item.id]"><h4>{{item.name}}</h4></a>
+</mat-card>

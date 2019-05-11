@@ -1,0 +1,15 @@
+@import '~styles/variables';
+
+h2 {
+  font-weight: 100;
+  margin-top: 0;
+}
+
+.container {
+  width: 300px;
+  max-width: 100%;
+
+  .mat-form-field {
+    width: 100%;
+  }
+}

@@ -1,0 +1,9 @@
+<div class="container" #offsetblock>
+  <i class="fa fa-angle-right" *ngIf="!hideNavigation" [class.disabled]="!canMove(-1)" (click)="move(-1)"></i>
+  <i class="fa fa-angle-left" *ngIf="!hideNavigation" [class.disabled]="!canMove(1)" (click)="move(1)"></i>
+  <div class="products-list" [style.marginLeft.px]="offset" #content
+    (panstart)="panstart($event)" (panend)="panend($event)" (panmove)="panmove($event)" [class.block-animation]="blockAnimation">
+    <carousel-item *ngFor="let item of items" [item]="item"></carousel-item>
+    <carousel-item *ngFor="let item of extra" [item]="item" [isExtra]="true"></carousel-item>
+  </div>
+</div>

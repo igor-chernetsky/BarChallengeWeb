@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="images" *ngIf="provider.images">
+    <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+  </div>
+  <div class="details">
+    <img class="logo" [src]="provider.logo">
+    <h1>{{provider.name}}</h1>
+    <div>{{provider.address}}</div>
+    <div>{{provider.description}}</div>
+  </div>
+  <div class="products-list" *ngIf="products">
+    <a [routerLink]="['/product', product.id]" *ngFor="let product of products">
+      <mat-card class="prouct-card">
+        <img [src]="product.image" class="product-image">
+        <h4>{{product.name}}</h4>
+      </mat-card>
+    </a>
+  </div>
+</div>

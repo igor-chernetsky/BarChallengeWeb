@@ -1,0 +1,314 @@
+{
+  "challenges": [
+    {
+      "id": 1,
+      "name": "vodka challange",
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+      },
+      "products": [
+        {
+          "id": 5,
+          "name": "mint ginger",
+          "image": "https://assets.absolutdrinks.com/v2/black/415x570/absolut-ginger-smash.jpg"
+        },
+        {
+          "id": 6,
+          "name": "pink lemonade",
+          "image": "https://realhousemoms.com/wp-content/uploads/2012/08/Strawberry-Lemonade-Vodka_watermarked.jpg"
+        }
+      ],
+      "rewards": [
+        {
+          "id": 1,
+          "name": "whiskey sour",
+          "image": "https://assets.punchdrink.com/wp-content/uploads/2017/10/Article-Best-Whiskey-Sour-Cocktail-Recipe-1-1000x617.jpg"
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "whiskey challange",
+      "provider": {
+        "id": 2,
+        "name": "Bar #2",
+        "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png"
+      },
+      "products": [
+        {
+          "id": 2,
+          "name": "wiskey coctail 2",
+          "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+        },
+        {
+          "id": 3,
+          "name": "old fashioned",
+          "image": "https://cdn.gearpatrol.com/wp-content/uploads/2016/06/Old-Fashioned-Gear-Patrol-Lead-Featured.jpg"
+        },
+        {
+          "id": 2,
+          "name": "wiskey coctail 2",
+          "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+        },
+        {
+          "id": 2,
+          "name": "wiskey coctail 2",
+          "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+        },
+        {
+          "id": 4,
+          "name": "white russian",
+          "image": "http://cocktailbart.de/wp-content/uploads/2016/01/white-russian-cocktail-kahlua-sahne-wodka-dude-lebowski_neu.jpg"
+        }
+      ],
+      "rewards": [
+        {
+          "id": 2,
+          "name": "wiskey coctail 2",
+          "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+        }
+      ]
+    }
+  ],
+  "userChallenges": [
+    {
+      "id": 123,
+      "challenges": [
+        {
+          "id": 1,
+          "name": "vodka challange",
+          "provider": {
+            "id": 1,
+            "name": "Bar #1",
+            "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+          },
+          "status": "ongoing",
+          "products": [
+            {
+              "id": 5,
+              "name": "mint ginger",
+              "status": "done",
+              "image": "https://assets.absolutdrinks.com/v2/black/415x570/absolut-ginger-smash.jpg"
+            },
+            {
+              "id": 6,
+              "name": "pink lemonade",
+              "image": "https://realhousemoms.com/wp-content/uploads/2012/08/Strawberry-Lemonade-Vodka_watermarked.jpg"
+            }
+          ],
+          "rewards": [
+            {
+              "id": 1,
+              "name": "whiskey sour",
+              "image": "https://assets.punchdrink.com/wp-content/uploads/2017/10/Article-Best-Whiskey-Sour-Cocktail-Recipe-1-1000x617.jpg"
+            }
+          ]
+        },
+        {
+          "id": 2,
+          "status": "done",
+          "name": "whiskey challange",
+          "provider": {
+            "id": 2,
+            "name": "Bar #2",
+            "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png"
+          },
+          "products": [
+            {
+              "id": 2,
+              "status": "done",
+              "name": "wiskey coctail 2",
+              "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+            },
+            {
+              "id": 3,
+              "status": "done",
+              "name": "old fashioned",
+              "image": "https://cdn.gearpatrol.com/wp-content/uploads/2016/06/Old-Fashioned-Gear-Patrol-Lead-Featured.jpg"
+            },
+            {
+              "id": 2,
+              "status": "done",
+              "name": "wiskey coctail 2",
+              "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+            },
+            {
+              "id": 2,
+              "status": "done",
+              "name": "wiskey coctail 2",
+              "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+            },
+            {
+              "id": 4,
+              "status": "done",
+              "name": "white russian",
+              "image": "http://cocktailbart.de/wp-content/uploads/2016/01/white-russian-cocktail-kahlua-sahne-wodka-dude-lebowski_neu.jpg"
+            }
+          ],
+          "rewards": [
+            {
+              "id": 2,
+              "name": "wiskey coctail 2",
+              "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "providers": [
+    {
+      "id": 1,
+      "name": "Bar #1",
+      "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg",
+      "images": [
+        "https://media-cdn.tripadvisor.com/media/photo-s/12/2a/b8/96/cocktail-bar-duck.jpg",
+        "https://media-cdn.tripadvisor.com/media/photo-s/0b/a0/01/e5/caption.jpg",
+        "https://vetliva.com/upload/resize_cache/iblock/98b/1170_640_268eedec01e6653c89a274fe302e3b1ff/98b5ec6a5ca2bfaea6bf18decf3273c0.jpg",
+        "https://www.likealocalguide.com/media/cache/35/7e/357eb29db1db966c3ed912c259233e23.jpg"
+      ],
+      "address": "Avenue 1",
+      "phone": "255-23-23",
+      "description": "some dummy description",
+      "email": "provider01@tt.tt"
+    },
+    {
+      "id": 2,
+      "name": "Bar #2",
+      "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png",
+      "images": [
+        "https://assets3.thrillist.com/v1/image/1743398/size/tmg-article_default_mobile.jpg",
+        "https://static.designmynight.com/uploads/2012/10/CREDIT_TheArtfulDiner_URL_Anna-MarieJulyan_Old_Bengal_Bar-optimised.jpg",
+        "https://www.touringclub.it/sites/default/files/styles/gallery_full/public/immagini_georiferite/cocktail.jpg?itok=7ZkTpiOM",
+        "https://media.timeout.com/images/103802466/630/472/image.jpg",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSlboGUF3sVhpjowfHBTSBNjh2hZug4WfWVAN8GztNnlSdTyna_",
+        "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5DorBW_79xZbHzP7AU5rqdkfApXjDgWZprqOhnqMzoAkEmzX8mA"
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Bar #3",
+      "logo": "https://ms1.relax.by/images/5f2f2c39f1f1242a76e27808f5d06228/resize/w=500,h=164,q=34/place_logo/2c/11/15/2c1115dd96abb569357f69c9be98e5fb.jpg"
+    }
+  ],
+  "products": [
+    {
+      "id": 1,
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/photo-s/12/2a/b8/96/cocktail-bar-duck.jpg",
+          "https://media-cdn.tripadvisor.com/media/photo-s/0b/a0/01/e5/caption.jpg",
+          "https://vetliva.com/upload/resize_cache/iblock/98b/1170_640_268eedec01e6653c89a274fe302e3b1ff/98b5ec6a5ca2bfaea6bf18decf3273c0.jpg",
+          "https://www.likealocalguide.com/media/cache/35/7e/357eb29db1db966c3ed912c259233e23.jpg"
+        ]
+      },
+      "name": "whiskey sour",
+      "image": "https://assets.punchdrink.com/wp-content/uploads/2017/10/Article-Best-Whiskey-Sour-Cocktail-Recipe-1-1000x617.jpg"
+    },
+    {
+      "id": 2,
+      "provider": {
+        "id": 2,
+        "name": "Bar #2",
+        "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png"
+      },
+      "name": "wiskey coctail 2",
+      "image": "https://assets.punchdrink.com/wp-content/uploads/2014/01/Improved-Whiskey.jpg"
+    },
+    {
+      "id": 3,
+      "provider": {
+        "id": 2,
+        "name": "Bar #2",
+        "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png"
+      },
+      "name": "old fashioned",
+      "image": "https://cdn.gearpatrol.com/wp-content/uploads/2016/06/Old-Fashioned-Gear-Patrol-Lead-Featured.jpg"
+    },
+    {
+      "id": 4,
+      "name": "white russian",
+      "provider": {
+        "id": 2,
+        "name": "Bar #2",
+        "logo": "https://logopond.com/logos/63560468c76cc47a4f84ffeb4361aa8f.png"
+      },
+      "image": "http://cocktailbart.de/wp-content/uploads/2016/01/white-russian-cocktail-kahlua-sahne-wodka-dude-lebowski_neu.jpg"
+    },
+    {
+      "id": 5,
+      "name": "mint ginger",
+      "image": "https://assets.absolutdrinks.com/v2/black/415x570/absolut-ginger-smash.jpg",
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+      }
+    },
+    {
+      "id": 6,
+      "name": "pink lemonade",
+      "image": "https://realhousemoms.com/wp-content/uploads/2012/08/Strawberry-Lemonade-Vodka_watermarked.jpg",
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+      }
+    },
+    {
+      "id": 7,
+      "name": "Juicy Basil",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTBd5dPpx0tfSsU7M5xFZRm_D9jIIUnAw_-sX5_ivOSWAZj-RCU",
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+      }
+    },
+    {
+      "id": 8,
+      "name": "Irish Whiskey",
+      "image": "https://media.timeout.com/images/103166470/image.jpg",
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+      }
+    },
+    {
+      "provider": {
+        "id": 1,
+        "name": "Bar #1",
+        "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg",
+        "images": [
+          "https://media-cdn.tripadvisor.com/media/photo-s/12/2a/b8/96/cocktail-bar-duck.jpg",
+          "https://media-cdn.tripadvisor.com/media/photo-s/0b/a0/01/e5/caption.jpg",
+          "https://vetliva.com/upload/resize_cache/iblock/98b/1170_640_268eedec01e6653c89a274fe302e3b1ff/98b5ec6a5ca2bfaea6bf18decf3273c0.jpg",
+          "https://www.likealocalguide.com/media/cache/35/7e/357eb29db1db966c3ed912c259233e23.jpg"
+        ],
+        "address": "Avenue 1",
+        "phone": "255-23-23",
+        "description": "some dummy description",
+        "email": "provider01@tt.tt"
+      },
+      "name": "Negroni",
+      "description": "campari, vermut, gin",
+      "id": 9
+    }
+  ],
+  "login": {
+    "id": 123,
+    "email": "test@tt.tt",
+    "token": "testtokenhereKEYSOLT"
+  },
+  "providerlogin": {
+    "id": 1,
+    "name": "Bar #1",
+    "token": "testtokenhereKEYSOLT"
+  }
+}
