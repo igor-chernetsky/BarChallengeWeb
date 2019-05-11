@@ -4,8 +4,9 @@
       <img *ngIf="product.image" [src]="product.image" class="product-image">
       <img *ngIf="!product.image" src="/assets/img/default-coctail.svg" class="placeholder-image">
       <h4>{{product.name}}</h4>
-      <a class="remove-icon" *ngIf="providerMode" (click)="removeProduct(product)"><i class="fa fa-trash"></i></a>
+      <a class="edit-icon icon" *ngIf="state.providerMode" (click)="editProduct($event, product)"><i class="fa fa-edit"></i></a>
+      <a class="remove-icon icon" *ngIf="state.isRemovable" (click)="removeProduct($event, product)"><i class="fa fa-trash"></i></a>
     </mat-card>
   </a>
-  <a class="new-product" [routerLink]="['/profile', 'product']" *ngIf="providerMode">+</a>
+  <a class="new-product" [routerLink]="['/profile', 'product']" *ngIf="state.providerMode">+</a>
 </div>

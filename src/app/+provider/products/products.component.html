@@ -1,4 +1,8 @@
 <h2>
   Products
 </h2>
-<products-list [products]="products" [providerMode]="true"></products-list>
+<products-list
+  [products]="products" [state]="listState"
+  (edit)="editProduct($event)"
+  (remove)="removeProduct($event)"
+  (pickProduct)="productPicked($event)"></products-list>

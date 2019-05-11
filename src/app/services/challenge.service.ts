@@ -28,6 +28,35 @@ export class ChallengeService {
       });
   }
 
+  public saveChallenge(challenge) {
+    if (!challenge.id) {
+      return this.http.post(this.apiUrl, challenge)
+        .toPromise()
+        .then((response) => {
+          const res = response.json();
+          return res;
+        });
+     } else {
+      const url = `${this.apiUrl}/${challenge.id}`;
+      return this.http.put(url, challenge)
+        .toPromise()
+        .then((response) => {
+          const res = response.json();
+          return res;
+        });
+     }
+  }
+
+  public removeChallenge(challengeId) {
+    const url = `${this.apiUrl}/${challengeId}`;
+    return this.http.delete(url)
+      .toPromise()
+      .then((response) => {
+        const res = response.json();
+        return res;
+      });
+  }
+
   public getUserChallenges(userId) {
     const url = `${process.env.API_URL}/userChallenges/${userId}`;
     return this.http.get(url)
@@ -39,7 +68,7 @@ export class ChallengeService {
   }
 
   public getProviderChallenges(providerId) {
-    const url = `${process.env.API_URL}/challenges?providerId=${providerId}`;
+    const url = `${process.env.API_URL}/challenges?provider.id=${providerId}`;
     return this.http.get(url)
       .toPromise()
       .then((response) => {

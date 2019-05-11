@@ -20,10 +20,11 @@ import { ProviderService } from '../../services/provider.service';
 export class ChallengeComponent implements OnInit {
   public challenge: Challenge = new Challenge();
   public provider: Provider;
-  public state = 'show';
   public formControls = {
-    nameFormControl: undefined
+    nameFormControl: new FormControl()
   };
+  public isEditing: boolean;
+  public listStatus = {isRemovable: true};
 
   constructor(
     private router: Router,
@@ -43,34 +44,56 @@ export class ChallengeComponent implements OnInit {
       }
     } else {
       this.challenge.provider = await this.providerService.getProviderById(this.provider.id);
-      this.changeStatus('edit');
     }
+    this.formControls.nameFormControl = new FormControl(this.challenge.name || '',
+      [Validators.required]);
   }
 
-  public changeStatus(state: string) {
-    if (state === 'edit') {
-      this.formControls.nameFormControl = new FormControl(this.challenge.name || '',
-        [Validators.required]);
-    }
-    this.state = state;
-  }
-
-  public addProduct() {
+  public addProduct(e) {
+    e.stopPropagation();
     const dialogRef = this.dialog.open(ProductPickerComponent);
     dialogRef.afterClosed().subscribe((product) => {
       if (product) {
         this.challenge.products.push(product);
+        this.isEditing = true;
       }
     });
   }
 
-  public addReward() {
+  public removeProduct(product) {
+    this.challenge.products = this.challenge.products.filter((p) => p !== product);
+    this.isEditing = true;
+  }
+
+  public addReward(e) {
+    e.stopPropagation();
     const dialogRef = this.dialog.open(ProductPickerComponent);
     dialogRef.afterClosed().subscribe((product) => {
       if (product) {
         this.challenge.rewards.push(product);
+        this.isEditing = true;
       }
     });
+  }
+
+  public removeReward(reward) {
+    this.challenge.products = this.challenge.rewards.filter((r) => r !== reward);
+    this.isEditing = true;
+  }
+
+  public async saveChallente() {
+    const editChallenge = {...this.challenge};
+    editChallenge.name = this.formControls.nameFormControl.value;
+    try {
+      this.challenge = await this.challengeService.saveChallenge(editChallenge);
+      this.router.navigate(['profile', 'challenges']);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  public productPicked(product) {
+    this.router.navigate(['/profile', 'product', product.id]);
   }
 
 }

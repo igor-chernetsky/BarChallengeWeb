@@ -1,5 +1,7 @@
 <div class="container">
-  <h2>Login</h2>
+  <h2>Pick a Product</h2>
   <div class="close-button" (click)="close()"><i class="fa fa-close"></i></div>
-  <products-list [products]="products" [noRedirect]="true" (pickProduct)="productPicked($event)"></products-list>
+  <mat-dialog-content>
+    <products-list [products]="products" [state]="listStatus" (pickProduct)="productPicked($event)"></products-list>
+  </mat-dialog-content>
 </div>

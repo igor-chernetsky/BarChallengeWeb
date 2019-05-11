@@ -1,5 +1,8 @@
-<mat-card class="prouct-card" [ngClass]="{'extra': isExtra, 'finished': item.status === 'done'}">
-  <div class="product-image"><img [src]="item.image"></div>
+<mat-card class="prouct-card" [routerLink]="['/product', item.id]" [ngClass]="{'extra': isExtra, 'finished': item.status === 'done'}">
+  <div class="product-image">
+    <img *ngIf="item.image" [src]="item.image">
+    <img *ngIf="!item.image" src="/assets/img/default-coctail.svg" class="placeholder-image">
+  </div>
   <img *ngIf="isExtra" [src]="'/assets/img/reward_ru.png'" class="reward-img">
-  <a [routerLink]="['product', item.id]"><h4>{{item.name}}</h4></a>
+  <div><h4>{{item.name}}</h4></div>
 </mat-card>

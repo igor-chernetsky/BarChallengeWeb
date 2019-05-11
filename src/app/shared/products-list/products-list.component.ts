@@ -10,9 +10,14 @@ import { ProductService } from '../../services/product.service';
 })
 export class ProductsListComponent implements OnInit {
   @Input() public products: Product[];
-  @Input() public providerMode: boolean;
-  @Input() public noRedirect: boolean;
+  @Input() public state = {
+    noRedirect: false,
+    providerMode: false,
+    isRemovable: false
+  };
   @Output() public pickProduct = new EventEmitter();
+  @Output() public remove = new EventEmitter();
+  @Output() public edit = new EventEmitter();
 
   constructor(
     private router: Router,
@@ -21,21 +26,21 @@ export class ProductsListComponent implements OnInit {
   public ngOnInit() {
   }
 
-  public async removeProduct(e, product) {
+  public removeProduct(e, product) {
     e.stopPropagation();
-    try {
-      await this.productService.removeProduct(product.id);
-      this.products = this.products.filter((p) => p !== product);
-    } catch (e) {
-      console.log(e);
-    }
+    this.remove.emit(product);
+  }
+
+  public editProduct(e, product) {
+    e.stopPropagation();
+    this.edit.emit(product);
   }
 
   public productSelected(event, product) {
-    if (this.noRedirect) {
+    if (this.state.noRedirect) {
       event.stopPropagation();
     } else {
-      const link = this.providerMode ? ['/profile/product', product.id] : ['/product', product.id];
+      const link = this.state.providerMode ? ['/profile/product', product.id] : ['/product', product.id];
       this.router.navigate(link);
     }
     this.pickProduct.emit(product);

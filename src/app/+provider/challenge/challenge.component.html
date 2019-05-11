@@ -1,8 +1,20 @@
-<h3>Name</h3>
-{{challenge.name}}
-<h3>Products</h3>
-<products-list *ngIf="challenge.products" [products]="challenge.products"></products-list>
-<button mat-button (click)="addProduct()">Add Product</button>
-<h3>Rewards</h3>
-<products-list *ngIf="challenge.rewards" [products]="challenge.rewards"></products-list>
-<button mat-button (click)="addReward()">Add Reward</button>
+<form class="container" (submit)="saveChallente()">
+  <mat-form-field class="form-data">
+    <input matInput placeholder="Name" id="name" name="name" (input)="isEditing=true"
+      [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
+  </mat-form-field>
+  <h3>Products</h3>
+  <products-list *ngIf="challenge.products" [products]="challenge.products" [state]="listStatus"
+    (remove)="removeProduct($event)"
+    (pickProduct)="productPicked($event)"></products-list>
+  <button type="button" mat-button (click)="addProduct($event)">Add Product</button>
+  <h3>Rewards</h3>
+  <products-list *ngIf="challenge.rewards" [products]="challenge.rewards" [state]="listStatus"
+    (remove)="removeReward($event)"
+    (pickProduct)="productPicked($event)"></products-list>
+  <button type="button" mat-button (click)="addReward($event)">Add Reward</button>
+  <div class="main-actions">
+    <button *ngIf="isEditing" mat-button type="submit">Save Challenge</button>
+    <button type="button" mat-button [routerLink]="['/profile/challenges']">Back</button>
+  </div>
+</form>

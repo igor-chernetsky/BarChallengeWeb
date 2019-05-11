@@ -7,10 +7,12 @@ import { Product } from '../../../entities/product';
 @Component({
   selector: 'app-product-picker',
   templateUrl: './product-picker.component.html',
-  styleUrls: ['./product-picker.component.scss']
+  styleUrls: ['../../../shared/dialogs/dialogs.scss',
+    './product-picker.component.scss']
 })
 export class ProductPickerComponent implements OnInit {
   public products: Product[] = [];
+  public listStatus = {noRedirect: true};
 
   constructor(
     public dialogRef: MatDialogRef<ProductPickerComponent>,
