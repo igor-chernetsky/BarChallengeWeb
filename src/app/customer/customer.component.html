@@ -3,7 +3,7 @@
     <a [routerLink]="['/']" class="logo"></a>
     <nav>
       <ul class="nav-links">
-        <ng-container *ngIf="!customer?.id; else logoutBlock">
+        <ng-container *ngIf="!customer?.id; else userBlock">
           <li>
             <a mat-button (click)="openProviderLogin()">Login as Bar</a>
           </li>
@@ -11,7 +11,10 @@
             <a mat-button (click)="openLogin()">Login</a>
           </li>
         </ng-container>
-        <ng-template #logoutBlock>
+        <ng-template #userBlock>
+          <li>
+            <a mat-button [routerLink]="['/orders']">Orders</a>
+          </li>
           <li>
             <a mat-button (click)="logout()">Logout</a>
           </li>

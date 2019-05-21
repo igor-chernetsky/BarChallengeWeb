@@ -9,6 +9,9 @@
     <h1>{{product.name}}</h1>
     <hr/>
     <p>{{product.description}}</p>
+    <div class="actions">
+      <button mat-button type="button" (click)="changeStatus('edit')">Edit</button>
+    </div>
   </div>
   <ng-template #editBlock>
     <form class="form" (submit)="saveProduct()">
@@ -20,8 +23,9 @@
         </textarea>
       </mat-form-field>
       <div class="actions">
-        <button mat-button (click)="changeImage()">{{product.image ? 'Change Image' : 'Add Image'}}</button>
+        <button mat-button type="button" (click)="changeImage()">{{product.image ? 'Change Image' : 'Add Image'}}</button>
         <button mat-button type="submit">Save</button>
+        <button mat-button type="button" (click)="changeStatus('show')">Cancel</button>
       </div>
     </form>
   </ng-template>

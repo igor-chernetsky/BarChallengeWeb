@@ -1,0 +1,23 @@
+<h2>
+  Orders
+</h2>
+<table class="white-table">
+  <thead>
+    <th>Product</th>
+    <th>Client Code</th>
+    <th>Order Date</th>
+    <th></th>
+  </thead>
+  <tr *ngFor="let purchase of purchases">
+    <td>
+      <div class="product-container">
+        <div *ngIf="purchase.product.image" class="product-image" [ngStyle]="{'background-image': 'url(' + purchase.product.image + ')'}"></div>
+        <div *ngIf="!purchase.product.image" class="product-image" [ngStyle]="{'background-image': 'url(\'/assets/img/default-coctail.svg\')'}"></div>
+        {{purchase.product.name}}
+      </div>
+    </td>
+    <td>{{purchase.clientId}}</td>
+    <td>{{purchase.date}}</td>
+    <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
+  </tr>
+</table>

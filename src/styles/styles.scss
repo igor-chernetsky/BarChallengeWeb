@@ -8,6 +8,7 @@
 
 body {
   background-color: $gray-darkest;
+  font-family: arial;
 }
 
 nav {
@@ -16,6 +17,7 @@ nav {
 
 h2 {
   color: #fff;
+  font-weight: $thin;
 }
 
 h3 {
@@ -57,8 +59,28 @@ nav a {
 
 .mat-button {
   background-color: #fff;
+  color: #333333;
 }
 
 .mat-dialog-container {
   background-color: #333;
+}
+
+.white-table {
+  color: #fff;
+  width: 100%;
+  th {
+    text-align: left;
+  }
+  td, th {
+    align-items: center;
+    padding: 5px;
+    &.centered {
+      text-align: center;
+    }
+  }
+  tr:nth-child(even)
+  {
+    background-color: #333;
+  }
 }

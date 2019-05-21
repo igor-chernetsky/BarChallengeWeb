@@ -7,6 +7,7 @@ import { ConsumerRoutingModule } from './consumer-routing.module';
 import { CustomerComponent } from './customer.component';
 import { LoginDialogComponent } from './dialogs/login/login.component';
 import { ChallengesListsComponent } from './challenges-lists/challenges-lists.component';
+import { OrdersComponent } from './orders/orders.component';
 import { ProductComponent } from './product/product.component';
 import { ProviderComponent } from './provider/provider.component';
 import { ProviderLoginDialogComponent } from './dialogs/provider-login/provider-login.component';
@@ -19,6 +20,7 @@ import { SharedModule } from '../shared/shared.module';
     CustomerComponent,
     LoginDialogComponent,
     ChallengesListsComponent,
+    OrdersComponent,
     ProductComponent,
     ProviderLoginDialogComponent,
     ProviderComponent,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+import { PurchaseComponent } from '../dialogs/purchase/purchase.component';
 
 import { AuthService } from '../../services/auth.service';
 import { ProductService } from '../../services/product.service';
@@ -22,6 +24,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public dialog: MatDialog,
     private authService: AuthService,
     private productService: ProductService) { }
 
@@ -44,7 +47,8 @@ export class ProductsComponent implements OnInit {
   }
 
   public productPicked(product) {
-    alert(product.name);
+    const dialogRef = this.dialog.open(PurchaseComponent);
+    dialogRef.componentInstance.product = product;
   }
 
 }

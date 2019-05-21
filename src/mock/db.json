@@ -292,13 +292,14 @@
     },
     {
       "id": 6,
-      "name": "pink lemonade",
+      "name": "pink lemonade1",
       "image": "https://realhousemoms.com/wp-content/uploads/2012/08/Strawberry-Lemonade-Vodka_watermarked.jpg",
       "provider": {
         "id": 1,
         "name": "Bar #1",
         "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
-      }
+      },
+      "description": "test"
     },
     {
       "id": 7,
@@ -350,5 +351,84 @@
     "id": 1,
     "name": "Bar #1",
     "token": "testtokenhereKEYSOLT"
-  }
+  },
+  "purchases": [
+    {
+      "clientId": 231,
+      "product": {
+        "id": 6,
+        "name": "pink lemonade1",
+        "image": "https://realhousemoms.com/wp-content/uploads/2012/08/Strawberry-Lemonade-Vodka_watermarked.jpg",
+        "provider": {
+          "id": 1,
+          "name": "Bar #1",
+          "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+        },
+        "description": "test"
+      },
+      "id": 3940,
+      "date": "2019-05-17 15:53:10"
+    },
+    {
+      "clientId": 123,
+      "product": {
+        "id": 1,
+        "provider": {
+          "id": 1,
+          "name": "Bar #1",
+          "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg",
+          "images": [
+            "https://media-cdn.tripadvisor.com/media/photo-s/12/2a/b8/96/cocktail-bar-duck.jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-s/0b/a0/01/e5/caption.jpg",
+            "https://vetliva.com/upload/resize_cache/iblock/98b/1170_640_268eedec01e6653c89a274fe302e3b1ff/98b5ec6a5ca2bfaea6bf18decf3273c0.jpg",
+            "https://www.likealocalguide.com/media/cache/35/7e/357eb29db1db966c3ed912c259233e23.jpg"
+          ]
+        },
+        "name": "whiskey sour",
+        "image": "https://assets.punchdrink.com/wp-content/uploads/2017/10/Article-Best-Whiskey-Sour-Cocktail-Recipe-1-1000x617.jpg"
+      },
+      "id": 2302,
+      "date": "2019-05-17 15:53:12"
+    },
+    {
+      "clientId": 123,
+      "product": {
+        "id": 5,
+        "name": "mint ginger",
+        "image": "https://assets.absolutdrinks.com/v2/black/415x570/absolut-ginger-smash.jpg",
+        "provider": {
+          "id": 1,
+          "name": "Bar #1",
+          "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg"
+        }
+      },
+      "id": 9406,
+      "date": "2019-05-17 15:53:14"
+    },
+    {
+      "clientId": 221,
+      "product": {
+        "provider": {
+          "id": 1,
+          "name": "Bar #1",
+          "logo": "https://ms1.relax.by/images/0107b157ac9900f905b1d6c4e89469d7/resize/w=250,h=82,q=94/place_logo/a6/0f/a5/a60fa5b821c7158a6ba5f3c93747a075.jpg",
+          "images": [
+            "https://media-cdn.tripadvisor.com/media/photo-s/12/2a/b8/96/cocktail-bar-duck.jpg",
+            "https://media-cdn.tripadvisor.com/media/photo-s/0b/a0/01/e5/caption.jpg",
+            "https://vetliva.com/upload/resize_cache/iblock/98b/1170_640_268eedec01e6653c89a274fe302e3b1ff/98b5ec6a5ca2bfaea6bf18decf3273c0.jpg",
+            "https://www.likealocalguide.com/media/cache/35/7e/357eb29db1db966c3ed912c259233e23.jpg"
+          ],
+          "address": "Avenue 1",
+          "phone": "255-23-23",
+          "description": "some dummy description",
+          "email": "provider01@tt.tt"
+        },
+        "name": "Negroni",
+        "description": "campari, vermut, gin",
+        "id": 9
+      },
+      "id": 3634,
+      "date": "2019-05-17 16:11:17"
+    }
+  ]
 }

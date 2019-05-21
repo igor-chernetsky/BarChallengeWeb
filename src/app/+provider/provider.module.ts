@@ -10,6 +10,8 @@ import { ProviderProductComponent } from './provider-product/provider-product.co
 import { ProviderChallengesComponent } from './provider-challenges/provider-challenges.component';
 import { ProductsComponent } from './products/products.component';
 import { ProductPickerComponent } from './dialogs/product-picker/product-picker.component';
+import { PurchaseComponent } from './dialogs/purchase/purchase.component';
+import { OrdersComponent } from './orders/orders.component';
 
 import { SharedModule } from '../shared/shared.module';
 import { ChallengeComponent } from './challenge/challenge.component';
@@ -26,6 +28,8 @@ import { ChallengeComponent } from './challenge/challenge.component';
     ProductsComponent,
     ChallengeComponent,
     ProductPickerComponent,
+    PurchaseComponent,
+    OrdersComponent,
   ],
   imports: [
     SharedModule,
@@ -35,7 +39,8 @@ import { ChallengeComponent } from './challenge/challenge.component';
     RouterModule.forChild(routes),
   ],
   entryComponents: [
-    ProductPickerComponent
+    ProductPickerComponent,
+    PurchaseComponent
   ]
 })
 export class ProviderModule {

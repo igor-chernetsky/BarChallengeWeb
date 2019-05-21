@@ -1,0 +1,19 @@
+<h2>
+  Orders
+</h2>
+<table class="white-table">
+  <thead>
+    <th>Product</th>
+    <th>Order Date</th>
+  </thead>
+  <tr *ngFor="let purchase of purchases">
+    <td>
+      <div class="product-container">
+        <div *ngIf="purchase.product.image" class="product-image" [ngStyle]="{'background-image': 'url(' + purchase.product.image + ')'}"></div>
+        <div *ngIf="!purchase.product.image" class="product-image" [ngStyle]="{'background-image': 'url(\'/assets/img/default-coctail.svg\')'}"></div>
+        {{purchase.product.name}}
+      </div>
+    </td>
+    <td>{{purchase.date}}</td>
+  </tr>
+</table>

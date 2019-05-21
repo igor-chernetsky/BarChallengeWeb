@@ -1,0 +1,24 @@
+.container {
+  color: #fff;
+  width: 350px;
+  max-width: 100%;
+
+  .description{
+    margin-bottom: 20px;
+    font-size: 12px;
+  }
+}
+
+.actions {
+  text-align: center;
+}
+
+input[type=number]::-webkit-inner-spin-button, 
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.mat-form-field {
+  width: 100%;
+}
