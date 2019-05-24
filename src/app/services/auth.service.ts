@@ -14,9 +14,9 @@ export class AuthService {
     protected storageService: StorageService) { }
 
   public login(form) {
-    const url = `${process.env.API_URL}/login`;
+    const url = `${process.env.API_URL}/customers`;
     this.logout();
-    return this.http.get(url)
+    return this.http.post(url, form)
       .toPromise()
       .then((response) => {
         const res = response.json();

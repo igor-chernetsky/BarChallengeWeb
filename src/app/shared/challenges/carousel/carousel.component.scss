@@ -35,12 +35,12 @@
   .fa-angle-right {
     right: 0;
     @include fa-navigation();
-    background-image: linear-gradient(to left, #000, transparent);
+    background-image: linear-gradient(to left, #0F0F0F, transparent);
   }
 
   .fa-angle-left {
     left: 0;
     @include fa-navigation();
-    background-image: linear-gradient(to right, #000, transparent);
+    background-image: linear-gradient(to right, #0F0F0F, transparent);
   }
 }

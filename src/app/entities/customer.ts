@@ -1,5 +1,5 @@
 export class Customer {
-  public id: string;
+  public id: number;
   public name: string;
   public email: string;
   public phone: string;
