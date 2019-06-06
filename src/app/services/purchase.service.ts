@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
 
+import { CommonService } from './common.service';
+import { StorageService } from './storage.service';
 import { Purchase } from '../entities/purchase';
 
 import { dateToString } from '../utils';
@@ -8,17 +10,19 @@ import { dateToString } from '../utils';
 @Injectable({
   providedIn: 'root'
 })
-export class PurchaseService {
+export class PurchaseService extends CommonService {
   protected apiUrl = `${process.env.API_URL}/purchases`;
-  constructor(
-    protected http: Http) { }
+  constructor(protected http: Http,
+    protected storageService: StorageService) {
+    super(http, storageService);
+  }
 
   public addPurchase(purchase:Purchase) {
-    // TODO - test code
-    purchase.id = Math.floor(Math.random() * 10000) + 1;
-    purchase.date = dateToString(new Date());
-
-    return this.http.post(this.apiUrl, purchase)
+    const params = {
+      customerId: purchase.customerId,
+      productId: purchase.product.id,
+    }
+    return this.http.post(this.apiUrl, params, this.getOptions())
       .toPromise()
       .then((response) => {
         const res = response.json();
@@ -46,9 +50,9 @@ export class PurchaseService {
       });
   }
 
-  public getClientPurchases(clientId) {
-    const url = `${this.apiUrl}?clientId=${clientId}`;
-    return this.http.get(url)
+  public getClientPurchases(customerId) {
+    const url = `${this.apiUrl}?clientId=${customerId}`;
+    return this.http.get(this.apiUrl, this.getOptions())
       .toPromise()
       .then((response) => {
         const res = response.json();

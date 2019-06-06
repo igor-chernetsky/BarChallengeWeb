@@ -8,7 +8,6 @@ import { Product } from '../../../entities/product';
 })
 export class CarouselComponent implements OnInit {
   @Input() public items: Product[];
-  @Input() public extra: Product[];
   public offset = 0;
   public size = 264;
   public hideNavigation = false;
@@ -60,7 +59,7 @@ export class CarouselComponent implements OnInit {
   public setSizes() {
     this.size = window.innerWidth > 768 ? 284 : 250;
     this.carouselWidth = this.offsetblock.nativeElement.offsetWidth;
-    this.contentWidth = this.size * (this.items.length + this.extra.length);
+    this.contentWidth = this.size * this.items.length;
     this.offset = 0;
     this.hideNavigation = this.carouselWidth > this.contentWidth;
   }

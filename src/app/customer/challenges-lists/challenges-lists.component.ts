@@ -29,9 +29,11 @@ export class ChallengesListsComponent implements OnInit {
   // ----- private functions ------
   private  async initUserChallenges() {
     const customer = this.authService.getCurrentUser();
+    this.myChallenges = [];
     if (customer) {
       this.myChallenges = await this.challengeService.getUserChallenges(customer.id);
     }
   }
 
 }
+

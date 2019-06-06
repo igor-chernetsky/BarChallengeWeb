@@ -62,6 +62,8 @@ declare var HMR: boolean;
 declare var System: SystemJS;
 // declare const FIREBASE_CONFIG: FirebaseConfig;
 declare var API_URL: string;
+declare var PUBLIC_TOKEN: string;
+declare var APP_DEBUG: boolean;
 
 interface FirebaseConfig {
   apiKey: string;
@@ -83,6 +85,8 @@ interface GlobalEnvironment {
   System: SystemJS;
   // FIREBASE_CONFIG: FirebaseConfig;
   API_URL: string;
+  PUBLIC_TOKEN: string;
+  APP_DEBUG: boolean;
 }
 
 interface Es6PromiseLoader {

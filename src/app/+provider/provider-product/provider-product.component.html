@@ -14,9 +14,10 @@
     </div>
   </div>
   <ng-template #editBlock>
-    <form class="form" (submit)="saveProduct()">
+    <form class="form" (submit)="saveProduct()" autocomplete="false">
       <mat-form-field class="form-data">
-        <input matInput placeholder="Coctail Name" id="name" name="name" [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
+        <input matInput placeholder="Coctail Name" id="coctainName" name="coctainName" autocomplete="new-password"
+        [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
       </mat-form-field>
       <mat-form-field class="form-data">
         <textarea matInput placeholder="Description" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">

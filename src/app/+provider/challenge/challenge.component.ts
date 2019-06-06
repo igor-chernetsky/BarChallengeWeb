@@ -49,12 +49,13 @@ export class ChallengeComponent implements OnInit {
       [Validators.required]);
   }
 
-  public addProduct(e) {
+  public addProduct(e, isReward) {
     e.stopPropagation();
     const dialogRef = this.dialog.open(ProductPickerComponent);
     dialogRef.afterClosed().subscribe((product) => {
       if (product) {
-        this.challenge.products.push(product);
+        product.isReward = isReward;
+        this.challenge.products = [...this.challenge.products, product];
         this.isEditing = true;
       }
     });
@@ -62,22 +63,6 @@ export class ChallengeComponent implements OnInit {
 
   public removeProduct(product) {
     this.challenge.products = this.challenge.products.filter((p) => p !== product);
-    this.isEditing = true;
-  }
-
-  public addReward(e) {
-    e.stopPropagation();
-    const dialogRef = this.dialog.open(ProductPickerComponent);
-    dialogRef.afterClosed().subscribe((product) => {
-      if (product) {
-        this.challenge.rewards.push(product);
-        this.isEditing = true;
-      }
-    });
-  }
-
-  public removeReward(reward) {
-    this.challenge.products = this.challenge.rewards.filter((r) => r !== reward);
     this.isEditing = true;
   }
 

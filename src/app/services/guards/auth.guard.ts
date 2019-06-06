@@ -9,7 +9,7 @@ import { AuthService } from '../auth.service';
 @Injectable({
   providedIn: 'root'
 })
-export class ConsumerGuard implements CanActivate {
+export class CustomerGuard implements CanActivate {
   constructor(
     public authService: AuthService,
     public storageService: StorageService,
@@ -17,13 +17,12 @@ export class ConsumerGuard implements CanActivate {
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     const authData = this.storageService.getStoredObj('authData');
-    if (authData && authData.role === 'consumer') {
+    if (authData && authData.role === 'customer') {
       return true;
     } else if (authData && authData.role === 'provider') {
       this.router.navigate(['/profile']);
       return false;
     }
-    console.log('consumer guard');
     this.router.navigate(['/']);
     return false;
   }

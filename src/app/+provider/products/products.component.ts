@@ -34,11 +34,9 @@ export class ProductsComponent implements OnInit {
   }
 
   public async removeProduct(product) {
-    try {
-      await this.productService.removeProduct(product.id);
+    const deleteResult = await this.productService.removeProduct(product.id);
+    if (deleteResult === 'success') {
       this.products = this.products.filter((p) => p !== product);
-    } catch (e) {
-      console.log(e);
     }
   }
 

@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
 import { ErrorStateMatcher } from '@angular/material/core';
 import { AuthService } from '../../../services/auth.service';
+import { CustomerService } from '../../../services/customer.service';
 
 class LoginErrorStateMatcher implements ErrorStateMatcher {
   public isErrorState(
@@ -29,11 +30,14 @@ export class LoginDialogComponent implements OnInit {
     Validators.minLength(6),
   ]);
   public errorStateMatcher = new LoginErrorStateMatcher();
+  public errorMessage = '';
+  public state = 'login';
 
   constructor(
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService,
+    private customerService: CustomerService) { }
 
   public ngOnInit() {
 
@@ -49,9 +53,23 @@ export class LoginDialogComponent implements OnInit {
         email: this.emailFormControl.value,
         password: this.passwordFormControl.value
       };
-      const result = await this.authService.login(form);
-      this.dialogRef.close(result);
+      try {
+        let result;
+        if (this.state === 'login') {
+          result = await this.customerService.login(form);
+        } else {
+          result = await this.customerService.signup(form);
+        }
+        this.dialogRef.close(result);
+      } catch(e) {
+        this.errorMessage = 'Check Email and Password';
+      }
     }
+  }
+
+  public changeState(state) {
+    this.state = state;
+    this.errorMessage = '';
   }
 
   // ------ private functions -----

@@ -7,9 +7,9 @@ import { OrdersComponent } from './orders/orders.component';
 import { ProductComponent } from './product/product.component';
 import { ProviderComponent } from './provider/provider.component';
 
-import { ConsumerGuard, NotProviderGuard } from '../services/guards/auth.guard';
+import { CustomerGuard, NotProviderGuard } from '../services/guards/auth.guard';
 
-const consumerRoutes: Routes = [
+const customerRoutes: Routes = [
   { path: '', component: CustomerComponent,
     children: [
       { path: '', component: ChallengesListsComponent, canActivate: [NotProviderGuard] },
@@ -22,10 +22,10 @@ const consumerRoutes: Routes = [
 ];
 @NgModule({
   imports: [
-    RouterModule.forChild(consumerRoutes)
+    RouterModule.forChild(customerRoutes)
   ],
   exports: [
     RouterModule
   ]
 })
-export class ConsumerRoutingModule { }
+export class CustomerRoutingModule { }

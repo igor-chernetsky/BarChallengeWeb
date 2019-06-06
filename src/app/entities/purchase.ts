@@ -6,5 +6,5 @@ export class Purchase {
   provider: Provider;
   product: Product;
   date: string;
-  clientId: number;
+  customerId: number;
 }

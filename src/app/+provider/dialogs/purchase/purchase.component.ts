@@ -26,7 +26,7 @@ export class PurchaseComponent implements OnInit {
   public async setCode() {
     try {
       const params = new Purchase();
-      params.clientId = this.code;
+      params.customerId = this.code;
       params.product = this.product;
       params.provider = this.provider;
       await this.purchaseService.addPurchase(params);

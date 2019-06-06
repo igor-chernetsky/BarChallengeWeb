@@ -1,18 +1,18 @@
-<form class="container" (submit)="saveChallente()">
+<form class="container" (submit)="saveChallente()" autocomplete="false">
   <mat-form-field class="form-data">
-    <input matInput placeholder="Name" id="name" name="name" (input)="isEditing=true"
+    <input matInput placeholder="Name" id="challengeName" name="challengeName" (input)="isEditing=true"
       [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
   </mat-form-field>
   <h3>Products</h3>
-  <products-list *ngIf="challenge.products" [products]="challenge.products" [state]="listStatus"
+  <products-list *ngIf="challenge.products?.length" [products]="challenge.products | custom: {isReward: false}" [state]="listStatus"
     (remove)="removeProduct($event)"
     (pickProduct)="productPicked($event)"></products-list>
-  <button type="button" mat-button (click)="addProduct($event)">Add Product</button>
+  <button type="button" mat-button (click)="addProduct($event, false)">Add Product</button>
   <h3>Rewards</h3>
-  <products-list *ngIf="challenge.rewards" [products]="challenge.rewards" [state]="listStatus"
-    (remove)="removeReward($event)"
+  <products-list *ngIf="challenge.products?.length" [products]="challenge.products | custom: {isReward: true}" [state]="listStatus"
+    (remove)="removeProduct($event)"
     (pickProduct)="productPicked($event)"></products-list>
-  <button type="button" mat-button (click)="addReward($event)">Add Reward</button>
+  <button type="button" mat-button (click)="addProduct($event, true)">Add Reward</button>
   <div class="main-actions">
     <button *ngIf="isEditing" mat-button type="submit">Save Challenge</button>
     <button type="button" mat-button [routerLink]="['/profile/challenges']">Back</button>

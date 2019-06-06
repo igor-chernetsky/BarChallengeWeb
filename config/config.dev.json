@@ -1,11 +1,5 @@
 {
-  "firebase": {
-    "apiKey": "",
-    "authDomain": "XXXXXX.firebaseapp.com",
-    "databaseURL": "https://XXXXXX.firebaseio.com",
-    "projectId": "XXXXXX",
-    "storageBucket": "XXXXXX.appspot.com",
-    "messagingSenderId": "000000000000"
-  },
-  "API_URL": "http://localhost:3001"
+  "PUBLIC_TOKEN": "bcPblTstTkn",
+  "API_URL": "http://localhost:3001/api",
+  "APP_DEBUG": true
 }

@@ -8,7 +8,6 @@
       </a>
       <a mat-button *ngIf="providerMode" [routerLink]="['/profile', 'challenge', challenge.id]">Edit</a>
     </div>
-    <items-carousel [items]="challenge.products" [extra]="challenge.rewards"></items-carousel>
+    <items-carousel *ngIf="challenge.products?.length" [items]="challenge.products"></items-carousel>
   </div>
-
 </div>

@@ -11,27 +11,30 @@
   </div>
 </div>
 <ng-template #providerForm>
-  <form class="example-form" class="edit-form" (submit)="updateProvider()">
+  <form class="example-form" class="edit-form" (submit)="updateProvider()" autocomplete="false">
     <img class="logo" [src]="provider.logo">
     <div class="form">
       <mat-form-field class="form-data">
-        <input matInput placeholder="Name" id="name" name="name" [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
+        <input matInput placeholder="Name" id="name" name="name" autocomplete="new-password"
+        [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
       </mat-form-field>
       <mat-form-field class="form-data">
-        <input matInput placeholder="Email" id="email" name="email" [formControl]="formControls.emailFormControl" [errorStateMatcher]="errorStateMatcher">
+        <input matInput placeholder="Email" id="email" name="email" autocomplete="new-password"
+        [formControl]="formControls.emailFormControl" [errorStateMatcher]="errorStateMatcher">
         <mat-error *ngIf="formControls.emailFormControl.hasError('email') && !formControls.emailFormControl.hasError('required')">
           Please enter a valid email address
         </mat-error>
       </mat-form-field>
       <mat-form-field class="form-data">
-        <input matInput placeholder="Address" name="address" id="address" [formControl]="formControls.addressFormControl" [errorStateMatcher]="errorStateMatcher">
+        <input matInput placeholder="Address" name="address" id="address" [formControl]="formControls.addressFormControl" [errorStateMatcher]="errorStateMatcher" autocomplete="new-password">
       </mat-form-field>
       <mat-form-field class="form-data">
         <textarea matInput placeholder="Description" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
         </textarea>
       </mat-form-field>
       <mat-form-field class="form-data">
-        <input matInput placeholder="Phone" type="tel" id="phone" name="phone" [formControl]="formControls.phoneFormControl" [errorStateMatcher]="errorStateMatcher">
+        <input matInput placeholder="Phone" type="tel" id="phone" name="phone" autocomplete="new-password"
+        [formControl]="formControls.phoneFormControl" [errorStateMatcher]="errorStateMatcher">
       </mat-form-field>
       <div class="actions">
         <button type="submit" mat-button>Save</button>

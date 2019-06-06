@@ -3,16 +3,6 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { AuthService } from '../../../services/auth.service';
-
-class LoginErrorStateMatcher implements ErrorStateMatcher {
-  public isErrorState(
-    control: FormControl | null,
-    form: FormGroupDirective | NgForm | null): boolean {
-    const isSubmitted = form && form.submitted;
-    return !!(control && control.invalid && (control.dirty || control.touched || isSubmitted));
-  }
-}
 
 @Component({
   selector: 'provider-login',
@@ -20,38 +10,17 @@ class LoginErrorStateMatcher implements ErrorStateMatcher {
   styleUrls: ['./provider-login.component.scss']
 })
 export class ProviderLoginDialogComponent implements OnInit {
-  public emailFormControl = new FormControl('', [
-    Validators.required,
-    Validators.email,
-  ]);
-  public passwordFormControl = new FormControl('', [
-    Validators.required,
-    Validators.minLength(6),
-  ]);
-  public errorStateMatcher = new LoginErrorStateMatcher();
-
+  public state = 'login';
   constructor(
     public dialogRef: MatDialogRef<ProviderLoginDialogComponent>,
-    private router: Router,
-    private authService: AuthService) { }
+    private router: Router) { }
 
   public ngOnInit() {
 
   }
 
-  public close() {
-    this.dialogRef.close();
-  }
-
-  public async login(loginForm) {
-    if (!this.emailFormControl.errors && !this.passwordFormControl.errors) {
-      const form = {
-        email: this.emailFormControl.value,
-        password: this.passwordFormControl.value
-      };
-      const result = await this.authService.providerLogin(form);
-      this.dialogRef.close(result);
-    }
+  public close(user) {
+    this.dialogRef.close(user);
   }
 
   // ------ private functions -----

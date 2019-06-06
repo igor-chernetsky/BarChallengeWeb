@@ -1,0 +1,9 @@
+@import '~styles/variables';
+
+.mat-form-field {
+  width: 100%;
+}
+.error-message {
+  color: $red;
+  font-size: 14px;
+}

@@ -5,6 +5,6 @@ export class Challenge {
   id: number;
   name: string;
   provider: Provider;
-  products: Product[];
-  rewards: Product[];
+  products: Product[] = [];
+  rewards: Product[] = [];
 }

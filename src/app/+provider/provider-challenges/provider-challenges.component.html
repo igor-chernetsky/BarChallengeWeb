@@ -2,3 +2,4 @@
   Challenges
 </h2>
 <challenges *ngIf="challenges?.length" [challenges]="challenges" [providerMode]="true"></challenges>
+<a mat-button [routerLink]="['/profile', 'challenge']">+ Add Challenge</a>

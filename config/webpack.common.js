@@ -28,9 +28,13 @@ module.exports = function(options) {
   const isProd = options.env === 'production';
   const APP_CONFIG = require(process.env.ANGULAR_CONF_FILE || (isProd ? './config.prod.json' : './config.dev.json'));
   const API_URL = process.env.API_URL = APP_CONFIG.API_URL;
+  const PUBLIC_TOKEN = process.env.PUBLIC_TOKEN = APP_CONFIG.PUBLIC_TOKEN;
+  const APP_DEBUG = process.env.APP_DEBUG = APP_CONFIG.APP_DEBUG;
 
   const METADATA = Object.assign({
-    API_URL: APP_CONFIG.API_URL
+    API_URL: APP_CONFIG.API_URL,
+    PUBLIC_TOKEN: APP_CONFIG.PUBLIC_TOKEN,
+    APP_DEBUG: APP_CONFIG.APP_DEBUG
   }, buildUtils.DEFAULT_METADATA, options.metadata || {});
   const GTM_API_KEY = process.env.GTM_API_KEY || APP_CONFIG.gtmKey;
 
@@ -182,7 +186,9 @@ module.exports = function(options) {
         'process.env.NODE_ENV': JSON.stringify(METADATA.ENV),
         'process.env.HMR': METADATA.HMR,
         // 'FIREBASE_CONFIG': JSON.stringify(APP_CONFIG.firebase),
-        'process.env.API_URL': JSON.stringify(METADATA.API_URL)
+        'process.env.API_URL': JSON.stringify(METADATA.API_URL),
+        'process.env.PUBLIC_TOKEN': JSON.stringify(METADATA.PUBLIC_TOKEN),
+        'process.env.APP_DEBUG': JSON.stringify(METADATA.APP_DEBUG)
       }),
 
       /**

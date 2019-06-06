@@ -31,14 +31,14 @@ export class StorageService {
     return data;
   }
 
-  public getUserConfig(consumerId) {
+  public getUserConfig(customerId) {
     const config: any = this.getStoredObj('userConfig') || {};
-    return config[consumerId] || {};
+    return config[customerId] || {};
   }
 
-  public saveUserConfig(userConfig, consumerId) {
+  public saveUserConfig(userConfig, customerId) {
     const config: any = this.getStoredObj('userConfig') || {};
-    config[consumerId] = userConfig;
+    config[customerId] = userConfig;
     this.set('userConfig', JSON.stringify(config));
   }
 }

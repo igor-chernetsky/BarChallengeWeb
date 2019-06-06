@@ -7,4 +7,5 @@ export class Product {
   public description: string;
   public provider: Provider;
   public status: string;
+  public isReward: boolean;
 }

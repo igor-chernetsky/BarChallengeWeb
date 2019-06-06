@@ -18,7 +18,7 @@ export class ProfileComponent implements OnInit {
   public galleryOptions: NgxGalleryOptions[];
   public galleryImages: NgxGalleryImage[];
   public state = 'show';
-  public errorStateManager = new FormErrorStateMatcher();
+  public errorStateMatcher = new FormErrorStateMatcher();
 
   public formControls = {
     emailFormControl: undefined,
@@ -42,6 +42,7 @@ export class ProfileComponent implements OnInit {
       { image: false, height: '450px', width: '100%', thumbnailsPercent: 30 },
       { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30 }
     ];
+    if (!this.provider.address) this.switchState('edit');
     if (this.provider.images) {
       this.galleryImages = this.provider.images.map((i) => {
         return {
