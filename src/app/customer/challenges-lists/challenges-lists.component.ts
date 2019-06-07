@@ -20,6 +20,7 @@ export class ChallengesListsComponent implements OnInit {
 
   public async ngOnInit() {
     this.challenges = await this.challengeService.getChallenges();
+    this.orderChallenges(this.challenges);
     this.initUserChallenges();
     this.broadcaster.on('customer:update').subscribe(() => {
       this.initUserChallenges();
@@ -32,7 +33,18 @@ export class ChallengesListsComponent implements OnInit {
     this.myChallenges = [];
     if (customer) {
       this.myChallenges = await this.challengeService.getUserChallenges(customer.id);
+      this.orderChallenges(this.myChallenges);
     }
+  }
+
+  private orderChallenges(challenges) {
+    challenges.forEach(c => {
+      c.products.sort((a, b) => {
+        if (a.isReward && !b.isReward) return 1;
+        if (b.isReward && !a.isReward) return -1;
+        return 0;
+      });
+    });
   }
 
 }
