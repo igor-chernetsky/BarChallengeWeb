@@ -31,8 +31,18 @@ export class PurchaseService extends CommonService {
   }
 
   public getProviderPurchases(providerId) {
-    const url = `${this.apiUrl}?provider.id=${providerId}`;
-    return this.http.get(url)
+    const url = `${this.apiUrl}/provider/${providerId}`;
+    return this.http.get(url, this.getOptions())
+      .toPromise()
+      .then((response) => {
+        const res = response.json();
+        return res;
+      });
+  }
+
+  public getClientPurchases(customerId) {
+    const url = `${this.apiUrl}/customer/${customerId}`;
+    return this.http.get(url, this.getOptions())
       .toPromise()
       .then((response) => {
         const res = response.json();
@@ -42,21 +52,13 @@ export class PurchaseService extends CommonService {
 
   public removePurchase(purchaseId: number) {
     const url = `${this.apiUrl}/${purchaseId}`;
-    return this.http.delete(url)
+    return this.http.delete(url, this.getOptions())
       .toPromise()
       .then((response) => {
-        const res = response.json();
-        return res;
-      });
-  }
-
-  public getClientPurchases(customerId) {
-    const url = `${this.apiUrl}?clientId=${customerId}`;
-    return this.http.get(this.apiUrl, this.getOptions())
-      .toPromise()
-      .then((response) => {
-        const res = response.json();
-        return res;
-      });
+        if (response.status === 202) {
+          return 'success';
+        }
+        return 'failure';
+      }).catch(this.handleError.bind(this));
   }
 }

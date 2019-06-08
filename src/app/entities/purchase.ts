@@ -5,6 +5,6 @@ export class Purchase {
   id: number;
   provider: Provider;
   product: Product;
-  date: string;
+  createdAt: string;
   customerId: number;
 }

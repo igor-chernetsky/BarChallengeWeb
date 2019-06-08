@@ -17,7 +17,7 @@
       </div>
     </td>
     <td>{{purchase.customerId}}</td>
-    <td>{{purchase.date}}</td>
+    <td>{{purchase.createdAt | dater}}</td>
     <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
   </tr>
 </table>

@@ -50,7 +50,7 @@ interface StoreType {
   declarations: [
     AppComponent,
     AboutComponent,
-    NoContentComponent,
+    NoContentComponent
   ],
 
   imports: [

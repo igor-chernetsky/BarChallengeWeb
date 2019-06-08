@@ -11,6 +11,7 @@ import { CarouselItemComponent } from './challenges/carousel/carousel-item/carou
 import { ChallengesComponent } from './challenges/challenges.component';
 
 import { CustomFilterPipe } from '../pipe/custom-filter.pipe';
+import { DaterPipe } from '../pipe/dater.pipe';
 
 @NgModule({
   imports: [
@@ -29,7 +30,8 @@ import { CustomFilterPipe } from '../pipe/custom-filter.pipe';
     CarouselItemComponent,
     ChallengesComponent,
 
-    CustomFilterPipe
+    CustomFilterPipe,
+    DaterPipe
    ],
   exports: [
     MatCardModule,
@@ -43,7 +45,8 @@ import { CustomFilterPipe } from '../pipe/custom-filter.pipe';
     ChallengesComponent,
     ProductsListComponent,
 
-    CustomFilterPipe
+    CustomFilterPipe,
+    DaterPipe
   ]
 })
 export class SharedModule { }
