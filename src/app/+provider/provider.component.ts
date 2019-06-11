@@ -3,6 +3,11 @@ import {
   OnInit,
 } from '@angular/core';
 import { Router } from '@angular/router';
+import { MatDialog } from '@angular/material';
+
+import { RewardCustomerComponent } from
+  './dialogs/reward-customer/reward-customer.component';
+
 import { AuthService } from '../services/auth.service';
 import { BroadcasterService } from '../services/broadcaster.service';
 
@@ -19,7 +24,8 @@ export class ProviderComponent implements OnInit {
   constructor(
     private router: Router,
     private authService: AuthService,
-    private broadcaster: BroadcasterService) {}
+    private broadcaster: BroadcasterService,
+    public dialog: MatDialog) {}
 
   public ngOnInit() {
   }
@@ -31,4 +37,7 @@ export class ProviderComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
+  public makeReward() {
+    const dialogRef = this.dialog.open(RewardCustomerComponent);
+  }
 }

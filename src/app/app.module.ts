@@ -24,6 +24,7 @@ import { BroadcasterService } from './services/broadcaster.service';
 import { ChallengeService } from './services/challenge.service';
 import { StorageService } from './services/storage.service';
 import { CustomerService } from './services/customer.service';
+import { RewardService } from './services/reward.service';
 
 import { CustomerModule } from './customer/customer.module';
 
@@ -76,7 +77,8 @@ interface StoreType {
     BroadcasterService,
     ChallengeService,
     StorageService,
-    CustomerService
+    CustomerService,
+    RewardService
   ]
 })
 export class AppModule {}

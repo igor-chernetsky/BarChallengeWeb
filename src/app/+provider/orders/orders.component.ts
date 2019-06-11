@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PurchaseService } from '../../services/purchase.service';
 import { AuthService } from '../../services/auth.service';
+import { RewardService } from '../../services/reward.service';
 import { Purchase } from '../../entities/purchase';
 import { Provider } from '../../entities/provider';
 
@@ -13,9 +14,11 @@ import { Provider } from '../../entities/provider';
 export class OrdersComponent implements OnInit {
   public provider: Provider = new Provider();
   public purchases: Purchase[] = [];
+  public challenges = [];
 
   constructor(
     private authService: AuthService,
+    private rewardService: RewardService,
     private purchaseService: PurchaseService) { }
 
   public ngOnInit() {
@@ -35,8 +38,15 @@ export class OrdersComponent implements OnInit {
     }
   }
 
+  public getChallengeRewards(challenge) {
+    return challenge.products.filter(p => p.isReward);
+  }
+
+  // ------ private functions -----
+
   private async initPurchases() {
     this.purchases = await this.purchaseService.getProviderPurchases(this.provider.id);
+    this.challenges = await this.rewardService.getProviderRewards(this.provider.id);
   }
 
 }

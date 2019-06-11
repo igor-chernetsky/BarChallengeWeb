@@ -11,6 +11,7 @@ import { ProviderChallengesComponent } from './provider-challenges/provider-chal
 import { ProductsComponent } from './products/products.component';
 import { ProductPickerComponent } from './dialogs/product-picker/product-picker.component';
 import { PurchaseComponent } from './dialogs/purchase/purchase.component';
+import { RewardCustomerComponent } from './dialogs/reward-customer/reward-customer.component';
 import { OrdersComponent } from './orders/orders.component';
 
 import { SharedModule } from '../shared/shared.module';
@@ -29,6 +30,7 @@ import { ChallengeComponent } from './challenge/challenge.component';
     ChallengeComponent,
     ProductPickerComponent,
     PurchaseComponent,
+    RewardCustomerComponent,
     OrdersComponent,
   ],
   imports: [
@@ -40,7 +42,8 @@ import { ChallengeComponent } from './challenge/challenge.component';
   ],
   entryComponents: [
     ProductPickerComponent,
-    PurchaseComponent
+    PurchaseComponent,
+    RewardCustomerComponent
   ]
 })
 export class ProviderModule {

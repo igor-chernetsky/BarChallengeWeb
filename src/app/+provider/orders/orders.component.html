@@ -21,3 +21,28 @@
     <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
   </tr>
 </table>
+
+<h2>
+  Rewards
+</h2>
+<table class="white-table">
+  <thead>
+    <th>Challenge</th>
+    <th>Client Code</th>
+    <th>Rewards</th>
+    <th></th>
+  </thead>
+  <tr *ngFor="let challenge of challenges">
+    <td>{{challenge.name}}</td>
+    <td></td>
+    <td>
+      
+      <div class="product-container" *ngFor="let product of getChallengeRewards(challenge)">
+        <div *ngIf="product.image" class="product-image" [ngStyle]="{'background-image': 'url(' + product.image + ')'}"></div>
+        <div *ngIf="!product.image" class="product-image" [ngStyle]="{'background-image': 'url(\'/assets/img/default-coctail.svg\')'}"></div>
+        {{product.name}}
+      </div>
+    </td>
+    <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
+  </tr>
+</table>
