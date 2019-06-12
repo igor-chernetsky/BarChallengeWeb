@@ -143,7 +143,7 @@ module.exports = function(env) {
           sourceMap: sourceMapEnabled,
           parallel: true,
           cache: helpers.root('webpack-cache/uglify-cache'),
-          uglifyOptions: getUglifyOptions(supportES2015, true)
+          // uglifyOptions: getUglifyOptions(supportES2015, true)
         })
       ],
       splitChunks: {
