@@ -5,12 +5,11 @@
     <mat-form-field class="form-data">
       <input matInput type="number" [(ngModel)]="code" placeholder="User Code" id="code" name="code" autocomplete="false">
     </mat-form-field>
-    <div class="actions">
-      <button mat-button (click)="setCode()" [disabled]="!code">Show Rewards</button>
-    </div>
+    <button mat-button (click)="setCode()" [disabled]="!code">Show Rewards</button>
+    <div class="message" [class.error]="message.isError">{{message.text}}</div>
     <div *ngFor="let challenge of challenges">
       <h3>{{challenge.name}}</h3>
-      <products-list [products]="getChallengeRewards(challenge)" [state]="listStatus" (pickProduct)="productPicked($event)"></products-list>
+      <products-list [products]="getChallengeRewards(challenge)" [state]="listStatus" (pickProduct)="productPicked($event, challenge.id)"></products-list>
     </div>
   </mat-dialog-content>
 </div>

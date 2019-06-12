@@ -15,6 +15,10 @@ export class RewardCustomerComponent implements OnInit {
   public listStatus = {noRedirect: true};
   public code: Number;
   public provider: Provider;
+  public message = {
+    text: '',
+    isError: false
+  };
 
   constructor(
     public dialogRef: MatDialogRef<RewardCustomerComponent>,
@@ -26,16 +30,35 @@ export class RewardCustomerComponent implements OnInit {
   }
 
   public async setCode() {
+    this.message = { text: '', isError: false};
     this.challenges = await this.rewardService.getCustomerRewards(this.code);
-    console.log(this.challenges);
   }
 
   public close() {
     this.dialogRef.close();
   }
 
-  public productPicked(e) {
-    this.dialogRef.close(e);
+  public async productPicked(e, challengeId) {
+    try {
+      await this.rewardService.setReward({
+        customerId: this.code,
+        challengeId,
+        rewardId: e.id
+      });
+    } catch (error) {
+      this.message = {
+        isError: true,
+        text: 'Something went wrong, please try again'
+      };
+      this.code = undefined;
+      this.challenges = [];
+      return;
+    }
+    this.challenges = [];
+    this.message = { text: 'Success', isError: false};
+    setTimeout(() => {
+      this.dialogRef.close(e);
+    }, 1000);
   }
 
   public getChallengeRewards(challenge) {

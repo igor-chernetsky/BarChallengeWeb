@@ -10,7 +10,7 @@ import { dateToString } from '../utils';
   providedIn: 'root'
 })
 export class RewardService extends CommonService {
-  protected apiUrl = `${process.env.API_URL}/challenges/rewards`;
+  protected apiUrl = `${process.env.API_URL}/rewards`;
   constructor(protected http: Http,
     protected storageService: StorageService) {
     super(http, storageService);
@@ -29,6 +29,15 @@ export class RewardService extends CommonService {
   public getCustomerRewards(customerId) {
     const url = `${this.apiUrl}/${customerId}`;
     return this.http.get(url, this.getOptions())
+      .toPromise()
+      .then((response) => {
+        const res = response.json();
+        return res;
+      });
+  }
+
+  public setReward(data) {
+    return this.http.post(this.apiUrl, data, this.getOptions())
       .toPromise()
       .then((response) => {
         const res = response.json();
