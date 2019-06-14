@@ -34,6 +34,10 @@ export class SignupFormComponent implements OnInit {
 
   }
 
+  public closeDialog() {
+    this.close.emit();
+  }
+
   public async signup() {
     if (!this.emailFormControl.errors && !this.passwordFormControl.errors) {
       const form = {

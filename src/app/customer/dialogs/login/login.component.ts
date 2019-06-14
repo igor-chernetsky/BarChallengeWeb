@@ -47,7 +47,7 @@ export class LoginDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  public async login(loginForm) {
+  public async login() {
     if (!this.emailFormControl.errors && !this.passwordFormControl.errors) {
       const form = {
         email: this.emailFormControl.value,

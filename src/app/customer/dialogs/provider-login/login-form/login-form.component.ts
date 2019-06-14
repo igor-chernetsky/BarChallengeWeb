@@ -31,6 +31,10 @@ export class LoginFormComponent implements OnInit {
 
   }
 
+  public closeDialog() {
+    this.close.emit();
+  }
+
   public async login() {
     if (!this.emailFormControl.errors && !this.passwordFormControl.errors) {
       const form = {

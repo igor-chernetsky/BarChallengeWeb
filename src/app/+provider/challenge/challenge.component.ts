@@ -25,6 +25,7 @@ export class ChallengeComponent implements OnInit {
   };
   public isEditing: boolean;
   public listStatus = {isRemovable: true};
+  public errorStateMatcher = new FormErrorStateMatcher();
 
   constructor(
     private router: Router,

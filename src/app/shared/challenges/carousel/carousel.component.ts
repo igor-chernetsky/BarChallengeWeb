@@ -11,10 +11,10 @@ export class CarouselComponent implements OnInit {
   public offset = 0;
   public size = 264;
   public hideNavigation = false;
+  public blockAnimation: boolean;
   private carouselWidth: number;
   private contentWidth: number;
   private initialOffset: number;
-  private blockAnimation: boolean;
   @ViewChild('offsetblock') private offsetblock: ElementRef;
   @ViewChild('content') private content: ElementRef;
 
