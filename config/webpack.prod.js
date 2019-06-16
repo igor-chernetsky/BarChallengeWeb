@@ -139,12 +139,12 @@ module.exports = function(env) {
          *
          * NOTE: To debug prod builds uncomment //debug lines and comment //prod lines
          */
-        // new UglifyJsPlugin({
-        //   sourceMap: sourceMapEnabled,
-        //   parallel: true,
-        //   cache: helpers.root('webpack-cache/uglify-cache'),
-        //   uglifyOptions: getUglifyOptions(supportES2015, true)
-        // })
+        new UglifyJsPlugin({
+          sourceMap: sourceMapEnabled,
+          parallel: true,
+          cache: helpers.root('webpack-cache/uglify-cache'),
+          uglifyOptions: getUglifyOptions(supportES2015, true)
+        })
       ],
       splitChunks: {
         chunks: 'all'

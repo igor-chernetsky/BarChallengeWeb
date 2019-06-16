@@ -1,0 +1,11 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <h3>Choose File</h3>
+      <div class="form-group">
+        <button md-button (click)="fileInput.click()">Upload</button>
+        <input hidden name="image" type="file" (change)="fileChangeEvent($event)" #fileInput>
+      </div>
+    </div>
+  </div>
+</div>

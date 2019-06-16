@@ -25,7 +25,7 @@ export class CommonService {
       console.error('An error occured', error);
     }
 
-    if (error.status === 403 || error.status === 401 || error.status === 400) {
+    if (error.status === 403) {
       const responseBody = JSON.parse(error._body);
       const query:any = {};
       this.logout();

@@ -71,4 +71,12 @@ export class ProviderProductComponent implements OnInit {
     }
   }
 
+  public imageAdded(res) {
+    this.product.image = res.imageUrl;
+  }
+
+  public removeImage() {
+    this.product.image = undefined;
+  }
+
 }

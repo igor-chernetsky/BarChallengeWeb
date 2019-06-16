@@ -52,7 +52,7 @@ export class ProductService extends CommonService {
         }).catch(this.handleError.bind(this));
      } else {
       const url = `${this.apiUrl}/${product.id}`;
-      return this.http.put(url, product)
+      return this.http.put(url, product, this.getOptions())
         .toPromise()
         .then((response) => {
           const res = response.json();

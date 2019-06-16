@@ -1,5 +1,5 @@
 {
   "PUBLIC_TOKEN": "bcPblPrdScrtTokenTkn",
   "gtmKey" : "GTM-XXXXXXX",
-  "API_URL": "ec2-18-185-132-217.eu-central-1.compute.amazonaws.com:3000/api"
+  "API_URL": "http://ec2-18-185-132-217.eu-central-1.compute.amazonaws.com:3000/api"
 }

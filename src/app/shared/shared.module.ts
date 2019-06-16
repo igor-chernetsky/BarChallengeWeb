@@ -9,6 +9,7 @@ import { ProductsListComponent } from './products-list/products-list.component';
 import { CarouselComponent } from './challenges/carousel/carousel.component';
 import { CarouselItemComponent } from './challenges/carousel/carousel-item/carousel-item.component';
 import { ChallengesComponent } from './challenges/challenges.component';
+import { ImageUploaderComponent } from './image-uploader/image-uploader.component';
 
 import { CustomFilterPipe } from '../pipe/custom-filter.pipe';
 import { DaterPipe } from '../pipe/dater.pipe';
@@ -31,7 +32,8 @@ import { DaterPipe } from '../pipe/dater.pipe';
     ChallengesComponent,
 
     CustomFilterPipe,
-    DaterPipe
+    DaterPipe,
+    ImageUploaderComponent
    ],
   exports: [
     MatCardModule,
@@ -44,6 +46,7 @@ import { DaterPipe } from '../pipe/dater.pipe';
     CarouselItemComponent,
     ChallengesComponent,
     ProductsListComponent,
+    ImageUploaderComponent,
 
     CustomFilterPipe,
     DaterPipe
