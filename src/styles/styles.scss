@@ -60,6 +60,10 @@ nav a {
 .mat-button {
   background-color: #fff;
   color: #333333;
+  &.dark {
+    background-color: #777;
+    color: #fff;
+  }
 }
 
 .mat-dialog-container {

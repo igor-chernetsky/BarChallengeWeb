@@ -1,6 +1,9 @@
 <div class="images" *ngIf="provider.images">
   <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
 </div>
+<div class="actions">
+  <image-uploader *ngIf="state === 'edit'" (uploaded)="imageAdded($event)"></image-uploader>
+</div>
 <div class="details" *ngIf="state !== 'edit'; else providerForm">
   <img class="logo" [src]="provider.logo">
   <div class="info">

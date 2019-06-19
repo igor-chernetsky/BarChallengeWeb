@@ -4,22 +4,22 @@
     <nav>
       <ul class="lins-list">
         <li>
-          <a mat-button [routerLink]="['']">Profile</a>
-        </li>
-        <li>
           <a mat-button [routerLink]="['products']">Products</a>
         </li>
         <li>
           <a mat-button [routerLink]="['challenges']">Challenges</a>
         </li>
         <li>
-          <a mat-button [routerLink]="['orders']">Orders</a>
+          <a mat-button (click)="makeReward()"><i class="fa fa-medal"></i> Add Reward</a>
         </li>
         <li>
-          <a mat-button (click)="makeReward()">Reward</a>
-        </li>
-        <li>
-          <a mat-button (click)="logout()">Logout</a>
+          <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-bars"></i> Profile</button>
+          <mat-menu #menu="matMenu">
+            <a mat-menu-item [routerLink]="['']">My Profile</a>
+            <a mat-menu-item [routerLink]="['orders']">Orders</a>
+            <a mat-menu-item (click)="logout()">Logout</a>
+          </mat-menu>
+          
         </li>
       </ul>
     </nav>

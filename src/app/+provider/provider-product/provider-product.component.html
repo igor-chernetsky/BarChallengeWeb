@@ -2,7 +2,7 @@
   <mat-card class="prouct-card">
     <div class="placeholder">
       <i class="fa fa-image"></i>
-      <image-uploader *ngIf="state === 'edit'" (uploaded)="imageAdded($event)"></image-uploader>
+      <image-uploader class="add-image-btn" *ngIf="state === 'edit'" (uploaded)="imageAdded($event)"></image-uploader>
     </div>
     <ng-container *ngIf="product.image">
       <img [src]="product.image" class="product-image">

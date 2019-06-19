@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { MatCardModule, MatButtonModule, MatFormFieldModule,
-  MatInputModule, MatDialogModule } from '@angular/material';
+  MatInputModule, MatDialogModule, MatMenuModule } from '@angular/material';
 import { NgxGalleryModule } from 'ngx-gallery';
 import { ProductsListComponent } from './products-list/products-list.component';
 import { CarouselComponent } from './challenges/carousel/carousel.component';
@@ -22,6 +22,7 @@ import { DaterPipe } from '../pipe/dater.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatMenuModule,
     NgxGalleryModule,
     RouterModule.forChild([]),
   ],
@@ -41,6 +42,7 @@ import { DaterPipe } from '../pipe/dater.pipe';
     MatFormFieldModule,
     MatInputModule,
     MatDialogModule,
+    MatMenuModule,
     NgxGalleryModule,
     CarouselComponent,
     CarouselItemComponent,

@@ -43,15 +43,7 @@ export class ProfileComponent implements OnInit {
       { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30 }
     ];
     if (!this.provider.address) this.switchState('edit');
-    if (this.provider.images) {
-      this.galleryImages = this.provider.images.map((i) => {
-        return {
-          small: i,
-          medium: i,
-          big: i
-        };
-      });
-    }
+    this.initGalleryImages();
   }
 
   public switchState(state: string) {
@@ -88,5 +80,23 @@ export class ProfileComponent implements OnInit {
     }
   }
 
+  public imageAdded(res) {
+    if (!this.provider.images) this.provider.images = [];
+    this.provider.images.push(res.imageUrl);
+    this.initGalleryImages();
+  }
+
   // ----- private functions ------
+
+  private initGalleryImages() {
+    if (this.provider.images) {
+      this.galleryImages = this.provider.images.map((i) => {
+        return {
+          small: i,
+          medium: i,
+          big: i
+        };
+      });
+    }
+  }
 }
