@@ -26,8 +26,13 @@
   }
   .details {
     width: 100%;
-    .caption {
-      color: #fff;
+    color: #fff;
+    display: flex;
+    margin-bottom: 10px;
+    agm-map {
+      height: 300px;
+      width: 300px;
+      margin-left: auto;
     }
   }
   .logo {

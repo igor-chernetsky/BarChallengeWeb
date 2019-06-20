@@ -25,6 +25,7 @@ export class ProfileComponent implements OnInit {
     nameFormControl: undefined,
     descriptionFormControl: undefined,
     phoneFormControl: undefined,
+    cityFormControl: undefined,
     addressFormControl: undefined
   };
 
@@ -39,11 +40,20 @@ export class ProfileComponent implements OnInit {
       this.provider = await this.providerService.getProviderById(currentUser.id);
     }
     this.galleryOptions = [
-      { image: false, height: '450px', width: '100%', thumbnailsPercent: 30 },
-      { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30 }
+      { image: false, height: '400px', width: '100%', thumbnailsPercent: 30,
+        actions: [{icon: 'fa fa-trash', onClick: this.removeImage.bind(this)}]
+      },
+      { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30,
+        actions: [{icon: 'fa fa-trash', onClick: this.removeImage.bind(this)}]
+      }
     ];
     if (!this.provider.address) this.switchState('edit');
     this.initGalleryImages();
+
+    if (!this.provider.lat) {
+      this.provider.lat = 51.678418;
+      this.provider.lng = 7.809007;
+    }
   }
 
   public switchState(state: string) {
@@ -56,6 +66,8 @@ export class ProfileComponent implements OnInit {
         [Validators.required]);
       this.formControls.phoneFormControl = new FormControl(this.provider.phone || '',
         [Validators.required]);
+      this.formControls.cityFormControl = new FormControl(this.provider.city || '',
+        [Validators.required]);
       this.formControls.addressFormControl = new FormControl(this.provider.address || '',
         [Validators.required]);
       this.formControls.descriptionFormControl = new FormControl(this.provider.description || '');
@@ -65,11 +77,17 @@ export class ProfileComponent implements OnInit {
 
   public async updateProvider() {
     const editingProvider = {...this.provider};
+    editingProvider.city = this.formControls.cityFormControl.value;
     editingProvider.address = this.formControls.addressFormControl.value;
     editingProvider.name = this.formControls.nameFormControl.value;
     editingProvider.phone = this.formControls.phoneFormControl.value;
     editingProvider.description = this.formControls.descriptionFormControl.value;
     editingProvider.email = this.formControls.emailFormControl.value;
+    if (editingProvider.city && editingProvider.address) {
+      const coord = await this.providerService.getCoordinates(editingProvider);
+      if (coord) Object.assign(editingProvider, coord);
+    }
+
     this.state = 'loading';
     try {
       this.provider = await this.providerService.saveProvider(this.provider.id, editingProvider);
@@ -86,9 +104,25 @@ export class ProfileComponent implements OnInit {
     this.initGalleryImages();
   }
 
+  public removeImage(e, index) {
+    this.provider.images.splice(index, 1);
+    const closeIcon: any = document.querySelector('.ngx-gallery-close');
+    if (closeIcon) closeIcon.click();
+    this.initGalleryImages();
+  }
+
+  public logoAdded(res) {
+    this.provider.logo = res.imageUrl;
+  }
+
+  public removeLogo() {
+    this.provider.logo = undefined;
+  }
+
   // ----- private functions ------
 
   private initGalleryImages() {
+    this.galleryImages = undefined;
     if (this.provider.images) {
       this.galleryImages = this.provider.images.map((i) => {
         return {

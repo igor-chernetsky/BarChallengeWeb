@@ -3,10 +3,15 @@
     <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
   </div>
   <div class="details">
-    <img class="logo" [src]="provider.logo">
-    <h1>{{provider.name}}</h1>
-    <div>{{provider.address}}</div>
-    <div>{{provider.description}}</div>
+    <provider-logo [logo]="provider.logo" class="logo"></provider-logo>
+    <div class="info">
+      <h1>{{provider.name}}</h1>
+      <div>{{provider.address}}</div>
+      <div>{{provider.description}}</div>
+    </div>
+    <agm-map [latitude]="provider.lat" [longitude]="provider.lng" *ngIf="provider.lat" [zoom]="14">
+      <agm-marker [latitude]="provider.lat" [longitude]="provider.lng"></agm-marker>
+    </agm-map>
   </div>
   <div class="products-list" *ngIf="products">
     <a [routerLink]="['/product', product.id]" *ngFor="let product of products">

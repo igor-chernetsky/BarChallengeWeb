@@ -27,6 +27,18 @@ h1 {
   margin-bottom: 10px;
   .info {
     width: 100%;
+    display: flex;
+
+    .main-info {
+      margin-right: 20px;
+      height: 100%;
+      width: 100%;
+    }
+    agm-map {
+      height: 300px;
+      width: 300px;
+      margin-left: auto;
+    }
   }
   .caption {
     color: #fff;
@@ -36,6 +48,18 @@ h1 {
   width: 100%;
   display: flex;
   flex-direction: column;
+  .edit-columns {
+    display: flex;
+    .column {
+      width: 100%;
+      &:not(:last-child) {
+        margin-right: 30px;
+      }
+      textarea {
+        height: 100px;
+      }
+    }
+  }
   .caption {
     color: #fff;
   }
@@ -50,6 +74,7 @@ h1 {
 .actions {
   display: flex;
   justify-content: flex-end;
+  margin-top: 20px;
   button {
     margin-left: 10px;
   }
@@ -57,6 +82,8 @@ h1 {
 
 .logo {
   width: 100px;
-  max-height: 100px;
+  height: 100px;
   margin-right: 20px;
+  display: block;
+  margin-bottom: 10px;
 }

@@ -2,7 +2,7 @@
   <div *ngFor="let challenge of challenges" class="challenge-list">
     <div class="header">
       {{challenge.name}} 
-      <a *ngIf="providerMode" [routerLink]="['provider', challenge.provider.id]">
+      <a *ngIf="!providerMode" [routerLink]="['provider', challenge.provider.id]">
         by {{challenge.provider.name}}
         <img [src]="challenge.provider.logo" class="logo" *ngIf="challenge.provider.logo">
       </a>

@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxWebstorageModule } from 'ngx-webstorage';
+import { AgmCoreModule } from '@agm/core';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -66,6 +67,9 @@ interface StoreType {
       preloadingStrategy: PreloadAllModules
     }),
     NgxWebstorageModule.forRoot(),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyDWFy4A4rCpfy5XUU7IBQewqElZKP43g_Q'
+    })
   ],
   /**
    * Expose our Services and Providers into Angular's dependency injection.

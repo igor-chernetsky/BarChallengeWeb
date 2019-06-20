@@ -1,0 +1,6 @@
+<div class="logo-placeholder" *ngIf="!logo; else logoImage">
+  <i class="fa fa-glass"></i>
+</div>
+<ng-template #logoImage>
+  <img class="logo" [src]="logo">
+</ng-template>

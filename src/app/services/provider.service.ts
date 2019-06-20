@@ -75,4 +75,17 @@ export class ProviderService extends CommonService {
       })
       .catch(this.handleError.bind(this));
   }
+
+  public getCoordinates(provider) {
+    const url = `https://maps.google.com/maps/api/geocode/json?address=${provider.address},${provider.city}&key=AIzaSyDWFy4A4rCpfy5XUU7IBQewqElZKP43g_Q`;
+    return this.http.get(url)
+      .toPromise()
+      .then((response) => {
+        const res = response.json();
+        if(res.results && res.results.length) {
+          const result = res.results.find(r => r.geometry && r.geometry.location);
+          return result.geometry.location;
+        }
+      });
+  }
 }

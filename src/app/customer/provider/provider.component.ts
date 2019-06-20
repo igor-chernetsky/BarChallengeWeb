@@ -29,7 +29,7 @@ export class ProviderComponent implements OnInit {
       this.provider = await this.providerService.getProviderById(providerId);
     }
     this.galleryOptions = [
-      { image: false, height: '450px', width: '100%', thumbnailsPercent: 30 },
+      { image: false, height: '400px', width: '100%', thumbnailsPercent: 30 },
       { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30 }
     ];
     if (this.provider.images) {
