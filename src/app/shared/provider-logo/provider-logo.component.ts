@@ -7,6 +7,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class ProviderLogoComponent implements OnInit {
   @Input() public logo: string;
+  @Input() public small: boolean;
 
   constructor() { }
 

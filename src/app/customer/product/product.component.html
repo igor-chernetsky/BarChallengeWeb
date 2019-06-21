@@ -3,15 +3,21 @@
     <img [src]="product.image" class="product-image">
   </mat-card>
   <div class="details">
-    <h1>{{product.name}}</h1>
-    <hr/>
-    <p>{{product.description}}</p>
-    <div *ngIf="product.provider">
-      <a [routerLink]="['/provider', product.provider.id]" class="no-decoration">
-        <img [src]="product.provider.logo" class="logo" *ngIf="product.provider.logo; else titlePlaceholder">
-        <h2>{{product.provider.name}}</h2>
-      </a>
-      <div>{{product.provider.address}}</div>
+    <div class="column">
+      <h1>{{product.name}}</h1>
+      <hr/>
+      <p>{{product.description}}</p>
+    </div>
+    <div class="column">
+      <div *ngIf="product.provider">
+        <a [routerLink]="['/provider', product.provider.id]" class="no-decoration">
+          <h2>
+            {{product.provider.name}}
+            <provider-logo [logo]="product.provider.logo" class="logo" [small]="true"></provider-logo>
+          </h2>
+        </a>
+        <div>{{product.provider.address}}</div>
+      </div>
     </div>
   </div>
 </div>

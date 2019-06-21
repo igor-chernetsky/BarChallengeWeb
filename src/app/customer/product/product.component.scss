@@ -25,9 +25,9 @@
   .prouct-card {
     display: flex;
     position: relative;
-    height: 300px;
+    height: 160px;
     width: 100%;
-    max-width: 300px;
+    max-width: 160px;
     overflow: hidden;
 
     .product-image {
@@ -41,13 +41,22 @@
   }
   .details {
     width: 100%;
+    color: #fff;
+    display: flex;
     @include breakpoint(sm) {
       margin-left: 20px;
     }
+    .column {
+      width: 100%;
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+    }
   }
   .logo {
-    width: 100px;
-    max-height: 100px;
+    width: 30px;
+    height: 30px;
     margin-right: 20px;
+    display: inline-block;
   }
 }
