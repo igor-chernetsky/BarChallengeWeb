@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { NgxGalleryOptions, NgxGalleryImage, NgxGalleryAnimation } from 'ngx-gallery';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from '../../services/auth.service';
 import { ProviderService } from '../../services/provider.service';
@@ -30,6 +31,7 @@ export class ProfileComponent implements OnInit {
   };
 
   constructor(
+    public translate: TranslateService,
     private route: ActivatedRoute,
     private authService: AuthService,
     private providerService: ProviderService) { }
@@ -40,20 +42,19 @@ export class ProfileComponent implements OnInit {
       this.provider = await this.providerService.getProviderById(currentUser.id);
     }
     this.galleryOptions = [
-      { image: false, height: '400px', width: '100%', thumbnailsPercent: 30,
+      { image: false, height: '300px', width: '100%', thumbnailsPercent: 50,
         actions: [{icon: 'fa fa-trash', onClick: this.removeImage.bind(this)}]
       },
-      { breakpoint: 768, image: false, height: '200px', width: '100%', thumbnailsPercent: 30,
+      { breakpoint: 768, image: false, height: '160px', width: '100%', thumbnailsColumns: 3,
         actions: [{icon: 'fa fa-trash', onClick: this.removeImage.bind(this)}]
       }
     ];
-    if (!this.provider.address) this.switchState('edit');
+    if (!this.provider.address) {
+      this.switchState('edit');
+    }
     this.initGalleryImages();
 
-    if (!this.provider.lat) {
-      this.provider.lat = 51.678418;
-      this.provider.lng = 7.809007;
-    }
+    console.log(this.translate.getLangs());
   }
 
   public switchState(state: string) {

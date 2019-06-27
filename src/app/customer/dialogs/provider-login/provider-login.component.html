@@ -1,7 +1,7 @@
 <div class="container">
     <h2 mat-dialog-title class="tabs">
-      <a (click)="state = 'login'" [class.active]="state === 'login'">Login</a>
-      <a (click)="state = 'signup'" [class.active]="state === 'signup'">SignUp</a>
+      <a (click)="state = 'login'" [class.active]="state === 'login'">{{'Login' | translate}}</a>
+      <a (click)="state = 'signup'" [class.active]="state === 'signup'">{{'SignUp' | translate}}</a>
     </h2>
   <ng-container *ngIf="state === 'login'; else signupForm">
     <login-form (close)="close($event)"></login-form>

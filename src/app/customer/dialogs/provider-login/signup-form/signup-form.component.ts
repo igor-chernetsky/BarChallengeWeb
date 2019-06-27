@@ -2,6 +2,7 @@ import { Component, OnInit, HostListener, Output, EventEmitter } from '@angular/
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 import { ProviderService } from '../../../../services/provider.service';
 import { FormErrorStateMatcher } from '../../../../entities/errors';
 
@@ -27,6 +28,7 @@ export class SignupFormComponent implements OnInit {
   public errorMessage = '';
 
   constructor(
+    public translate: TranslateService,
     private router: Router,
     private providerService: ProviderService) { }
 

@@ -1,11 +1,11 @@
 <div class="container">
-  <h2>Reward Customer</h2>
+  <h2>{{'Reward Customer' | translate}}</h2>
   <div class="close-button" (click)="close()"><i class="fa fa-close"></i></div>
   <mat-dialog-content>
     <mat-form-field class="form-data">
       <input matInput type="number" [(ngModel)]="code" placeholder="User Code" id="code" name="code" autocomplete="false">
     </mat-form-field>
-    <button mat-button (click)="setCode()" [disabled]="!code">Show Rewards</button>
+    <button mat-button (click)="setCode()" [disabled]="!code">{{'Show Available Rewards' | translate}}</button>
     <div class="message" [class.error]="message.isError">{{message.text}}</div>
     <div *ngFor="let challenge of challenges">
       <h3>{{challenge.name}}</h3>

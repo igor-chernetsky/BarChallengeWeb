@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 import { Product } from '../../../entities/product';
 import { Provider } from '../../../entities/provider';
 import { Purchase } from '../../../entities/purchase';
@@ -17,6 +18,7 @@ export class PurchaseComponent implements OnInit {
   private provider: Provider;
 
   constructor(
+    public translate: TranslateService,
     private purchaseService: PurchaseService,
     public dialogRef: MatDialogRef<PurchaseComponent>) { }
 

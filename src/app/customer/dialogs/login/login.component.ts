@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth.service';
 import { CustomerService } from '../../../services/customer.service';
 
@@ -34,6 +35,7 @@ export class LoginDialogComponent implements OnInit {
   public state = 'login';
 
   constructor(
+    public translate: TranslateService,
     public dialogRef: MatDialogRef<LoginDialogComponent>,
     private router: Router,
     private authService: AuthService,

@@ -14,22 +14,22 @@
     <hr/>
     <p>{{product.description}}</p>
     <div class="actions">
-      <button mat-button type="button" (click)="changeStatus('edit')">Edit</button>
+      <button mat-button type="button" (click)="changeStatus('edit')">{{'Edit' | translate}}</button>
     </div>
   </div>
   <ng-template #editBlock>
     <form class="form" (submit)="saveProduct()" autocomplete="false">
       <mat-form-field class="form-data">
-        <input matInput placeholder="Coctail Name" id="coctainName" name="coctainName" autocomplete="new-password"
+        <input matInput [placeholder]="'Title' | translate" id="coctainName" name="coctainName" autocomplete="new-password"
         [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
       </mat-form-field>
       <mat-form-field class="form-data">
-        <textarea matInput placeholder="Description" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
+        <textarea matInput [placeholder]="'Description' | translate" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
         </textarea>
       </mat-form-field>
       <div class="actions">
-        <button mat-button type="submit">Save</button>
-        <button mat-button type="button" (click)="changeStatus('show')">Cancel</button>
+        <button mat-button type="submit">{{'Save' | translate}}</button>
+        <button mat-button type="button" (click)="changeStatus('show')">{{'Cancel' | translate}}</button>
       </div>
     </form>
   </ng-template>

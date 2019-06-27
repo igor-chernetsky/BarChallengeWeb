@@ -4,15 +4,18 @@ import { Headers, Http, RequestOptions } from '@angular/http';
 import { CommonService } from './common.service';
 import { StorageService } from './storage.service';
 import { Customer } from '../entities/customer';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService extends CommonService {
 
-   constructor(protected http: Http,
+   constructor(
+    protected router: Router,
+    protected http: Http,
     protected storageService: StorageService) {
-    super(http, storageService);
+    super(router, http, storageService);
   }
 
   public getCurrentUser(): any {

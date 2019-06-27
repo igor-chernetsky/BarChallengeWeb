@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 import { RewardCustomerComponent } from
   './dialogs/reward-customer/reward-customer.component';
@@ -25,7 +26,8 @@ export class ProviderComponent implements OnInit {
     private router: Router,
     private authService: AuthService,
     private broadcaster: BroadcasterService,
-    public dialog: MatDialog) {}
+    public dialog: MatDialog,
+    public translate: TranslateService) {}
 
   public ngOnInit() {
   }

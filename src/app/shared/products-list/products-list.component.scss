@@ -4,6 +4,9 @@
 .products-list {
   display: flex;
   flex-wrap: wrap;
+  @include breakpoint(lt-sm) {
+    justify-content: center;
+  }
 }
 
 .prouct-card {
@@ -11,8 +14,8 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  height: 232px;
-  width: 232px;
+  height: 160px;
+  width: 160px;
   overflow: hidden;
   margin: 0 10px 10px 0;
   cursor: pointer;
@@ -71,8 +74,8 @@
 }
 
 .new-product {
-  width: 262px;
-  height: 262px;
+  width: 190px;
+  height: 190px;
   border: 1px solid #fff;
   display: flex;
   justify-content: center;

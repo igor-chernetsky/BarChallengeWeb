@@ -9,7 +9,7 @@ import { Product } from '../../../entities/product';
 export class CarouselComponent implements OnInit {
   @Input() public items: Product[];
   public offset = 0;
-  public size = 192;
+  public size = 212;
   public hideNavigation = false;
   public blockAnimation: boolean;
   private carouselWidth: number;

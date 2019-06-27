@@ -1,12 +1,12 @@
 <div class="container">
-  <h2>Purchasing {{product.name}}</h2>
+  <h2>{{'Purchasing' | translate}} {{product.name}}</h2>
   <div class="close-button" (click)="close()"><i class="fa fa-close"></i></div>
   <mat-dialog-content>
     <mat-form-field class="form-data">
       <input matInput type="number" [(ngModel)]="code" placeholder="User Code" id="code" name="code" autocomplete="false">
     </mat-form-field>
     <div class="actions">
-      <button mat-button (click)="setCode()">Save</button>
+      <button mat-button (click)="setCode()">{{'Save' | translate}}</button>
     </div>
   </mat-dialog-content>
 </div>

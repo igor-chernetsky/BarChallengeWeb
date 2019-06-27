@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../services/auth.service';
 import { PurchaseService } from '../../services/purchase.service';
 import { Purchase } from '../../entities/purchase';
@@ -12,6 +13,7 @@ export class OrdersComponent implements OnInit {
   public purchases: Purchase[] = [];
 
   constructor(
+    public translate: TranslateService,
     private authService: AuthService,
     private purchaseService: PurchaseService) { }
 

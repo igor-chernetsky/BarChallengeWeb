@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { CommonService } from './common.service';
 import { StorageService } from './storage.service';
@@ -12,16 +13,18 @@ import { dateToString } from '../utils';
 })
 export class PurchaseService extends CommonService {
   protected apiUrl = `${process.env.API_URL}/purchases`;
-  constructor(protected http: Http,
+  constructor(
+    protected router: Router,
+    protected http: Http,
     protected storageService: StorageService) {
-    super(http, storageService);
+    super(router, http, storageService);
   }
 
-  public addPurchase(purchase:Purchase) {
+  public addPurchase(purchase: Purchase) {
     const params = {
       customerId: purchase.customerId,
       productId: purchase.product.id,
-    }
+    };
     return this.http.post(this.apiUrl, params, this.getOptions())
       .toPromise()
       .then((response) => {

@@ -4,6 +4,7 @@ import {
 } from '@angular/core';
 import { Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from '../services/auth.service';
 import { BroadcasterService } from '../services/broadcaster.service';
@@ -25,7 +26,9 @@ export class CustomerComponent implements OnInit {
     private authService: AuthService,
     private broadcaster: BroadcasterService,
     private router: Router,
-    public dialog: MatDialog) {}
+    public translate: TranslateService,
+    public dialog: MatDialog) {
+  }
 
   public ngOnInit() {
     this.customer = this.authService.getCurrentUser();

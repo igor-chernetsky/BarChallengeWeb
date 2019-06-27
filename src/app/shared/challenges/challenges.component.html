@@ -3,10 +3,10 @@
     <div class="header">
       {{challenge.name}} 
       <a *ngIf="!providerMode" [routerLink]="['provider', challenge.provider.id]">
-        by {{challenge.provider.name}}
+        {{'by' | translate}} {{challenge.provider.name}}
         <img [src]="challenge.provider.logo" class="logo" *ngIf="challenge.provider.logo">
       </a>
-      <a mat-button *ngIf="providerMode" [routerLink]="['/profile', 'challenge', challenge.id]">Edit</a>
+      <a mat-button *ngIf="providerMode" [routerLink]="['/profile', 'challenge', challenge.id]">{{'Edit' | translate}}</a>
     </div>
     <items-carousel *ngIf="challenge.products?.length" [items]="challenge.products"></items-carousel>
   </div>

@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { PurchaseService } from '../../services/purchase.service';
 import { AuthService } from '../../services/auth.service';
 import { RewardService } from '../../services/reward.service';
 import { Purchase } from '../../entities/purchase';
 import { Provider } from '../../entities/provider';
-
 
 @Component({
   selector: 'app-orders',
@@ -17,6 +17,7 @@ export class OrdersComponent implements OnInit {
   public challenges = [];
 
   constructor(
+    public translate: TranslateService,
     private authService: AuthService,
     private rewardService: RewardService,
     private purchaseService: PurchaseService) { }

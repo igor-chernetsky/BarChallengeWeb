@@ -1,4 +1,4 @@
 <div class="container">
-  <button type="button" mat-button class="dark" (click)="fileInput.click()">Add Image</button>
+  <button type="button" mat-button class="dark" (click)="fileInput.click()">{{'Add Image' | translate}}</button>
   <input hidden name="image" type="file" (change)="fileChangeEvent($event)" #fileInput>
 </div>

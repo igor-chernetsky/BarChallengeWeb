@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { CommonService } from './common.service';
 import { StorageService } from './storage.service';
@@ -10,14 +11,17 @@ import { Customer } from '../entities/customer';
 })
 export class CustomerService extends CommonService {
   protected apiUrl = `${process.env.API_URL}/customer`;
-  constructor(protected http: Http,
+  constructor(
+    protected router: Router,
+    protected http: Http,
     protected storageService: StorageService) {
-    super(http, storageService);
+    super(router, http, storageService);
   }
 
   public login(form) {
     const url = `${process.env.API_URL}/customers/login`;
-    this.logout();
+    this.storageService.remove('authData');
+    this.storageService.remove('currentUser');
     return this.http.post(url, form, this.getOptions())
       .toPromise()
       .then((response) => {
@@ -34,7 +38,8 @@ export class CustomerService extends CommonService {
 
   public signup(form) {
     const url = `${process.env.API_URL}/customers`;
-    this.logout();
+    this.storageService.remove('authData');
+    this.storageService.remove('currentUser');
     return this.http.post(url, form, this.getOptions())
       .toPromise()
       .then((response) => {

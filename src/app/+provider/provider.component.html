@@ -4,22 +4,27 @@
     <nav>
       <ul class="lins-list">
         <li>
-          <a mat-button [routerLink]="['products']">Products</a>
+          <localization></localization>
+        </li>
+        <li class="show-desktop">
+          <a mat-button [routerLink]="['products']">{{ 'Drinks' | translate }}</a>
+        </li>
+        <li class="show-desktop">
+          <a mat-button [routerLink]="['challenges']">{{ 'Challenges' | translate }}</a>
+        </li>
+        <li class="show-desktop">
+          <a mat-button (click)="makeReward()">{{ 'Add Reward' | translate }}</a>
         </li>
         <li>
-          <a mat-button [routerLink]="['challenges']">Challenges</a>
-        </li>
-        <li>
-          <a mat-button (click)="makeReward()"><i class="fa fa-medal"></i> Add Reward</a>
-        </li>
-        <li>
-          <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-bars"></i> Profile</button>
+          <button mat-button [matMenuTriggerFor]="menu"><i class="fa fa-bars"></i> <span class="show-desktop">{{ 'Profile' | translate }}</span></button>
           <mat-menu #menu="matMenu">
-            <a mat-menu-item [routerLink]="['']">My Profile</a>
-            <a mat-menu-item [routerLink]="['orders']">Orders</a>
-            <a mat-menu-item (click)="logout()">Logout</a>
+            <a mat-menu-item [routerLink]="['']">{{ 'My Profile' | translate }}</a>
+            <a mat-menu-item class="show-mobile" (click)="makeReward()">{{ 'Add Reward' | translate }}</a>
+            <a mat-menu-item class="show-mobile" [routerLink]="['products']">{{ 'Drinks' | translate }}</a>
+            <a mat-menu-item class="show-mobile" [routerLink]="['challenges']">{{ 'Challenges' | translate }}</a>
+            <a mat-menu-item [routerLink]="['orders']">{{ 'Orders' | translate }}</a>
+            <a mat-menu-item (click)="logout()">{{ 'Logout' | translate }}</a>
           </mat-menu>
-          
         </li>
       </ul>
     </nav>

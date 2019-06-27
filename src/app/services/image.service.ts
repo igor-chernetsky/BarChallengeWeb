@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 
 import { CommonService } from './common.service';
 import { StorageService } from './storage.service';
@@ -10,9 +11,11 @@ import { Customer } from '../entities/customer';
 })
 export class ImageService extends CommonService {
   protected apiUrl = `${process.env.API_URL}/image`;
-  constructor(protected http: Http,
+  constructor(
+    protected router: Router,
+    protected http: Http,
     protected storageService: StorageService) {
-    super(http, storageService);
+    super(router, http, storageService);
   }
 
   public saveImage(form) {

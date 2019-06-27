@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { PurchaseComponent } from '../dialogs/purchase/purchase.component';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from '../../services/auth.service';
 import { ProductService } from '../../services/product.service';
@@ -24,6 +25,7 @@ export class ProductsComponent implements OnInit {
 
   constructor(
     private router: Router,
+    public translate: TranslateService,
     public dialog: MatDialog,
     private authService: AuthService,
     private productService: ProductService) { }

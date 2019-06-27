@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { ImageService } from '../../services/image.service';
 
 @Component({
@@ -8,7 +9,8 @@ import { ImageService } from '../../services/image.service';
 })
 export class ImageUploaderComponent {
   @Output() public uploaded = new EventEmitter();
-  constructor(private imageService: ImageService) { }
+  constructor(private imageService: ImageService,
+    public translate: TranslateService) { }
    
   public async fileChangeEvent(e) {
     const formData = new FormData();

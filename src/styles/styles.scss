@@ -100,3 +100,15 @@ select:-webkit-autofill:hover,
 select:-webkit-autofill:focus{
   background-color: transparent!important;
 }
+
+.show-mobile {
+  @include breakpoint(sm) {
+    display: none!important;
+  }
+}
+
+.show-desktop {
+  @include breakpoint(lt-sm) {
+    display: none!important;
+  }
+}

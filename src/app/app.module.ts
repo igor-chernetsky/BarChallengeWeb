@@ -2,11 +2,13 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxWebstorageModule } from 'ngx-webstorage';
 import { AgmCoreModule } from '@agm/core';
+import { TranslateModule, TranslateLoader} from '@ngx-translate/core';
+import { TranslateHttpLoader} from '@ngx-translate/http-loader';
 
 /*
  * Platform and Environment providers/directives/pipes
@@ -31,6 +33,11 @@ import { CustomerModule } from './customer/customer.module';
 
 import '../styles/styles.scss';
 import '../styles/headings.css';
+
+// AoT requires an exported function for factories
+export function HttpLoaderFactory(httpClient: HttpClient) {
+  return new TranslateHttpLoader(httpClient, "../assets/i18n/");
+}
 
 // Application wide providers
 const APP_PROVIDERS = [
@@ -69,6 +76,13 @@ interface StoreType {
     NgxWebstorageModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDWFy4A4rCpfy5XUU7IBQewqElZKP43g_Q'
+    }),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
     })
   ],
   /**

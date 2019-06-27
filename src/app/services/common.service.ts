@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Headers, Http, RequestOptions } from '@angular/http';
 import { StorageService } from './storage.service';
 
@@ -8,8 +9,15 @@ import { StorageService } from './storage.service';
 export class CommonService {
 
   constructor(
+    protected router: Router,
     protected http: Http,
     protected storageService: StorageService) { }
+
+  public logout() {
+    this.storageService.remove('authData');
+    this.storageService.remove('currentUser');
+    this.router.navigate(['/']);
+  }
 
   protected getOptions() {
     const authData = this.getAuthData();
@@ -32,12 +40,6 @@ export class CommonService {
     }
 
     return Promise.reject(error.message || error);
-  }
-
-  public logout() {
-    // location.href = '/';
-    this.storageService.remove('authData');
-    this.storageService.remove('currentUser');
   }
 
   // ----- private functions -----

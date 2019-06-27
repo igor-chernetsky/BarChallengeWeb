@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth.service';
 import { RewardService } from '../../../services/reward.service';
 import { Provider } from '../../../entities/provider';
@@ -21,6 +22,7 @@ export class RewardCustomerComponent implements OnInit {
   };
 
   constructor(
+    public translate: TranslateService,
     public dialogRef: MatDialogRef<RewardCustomerComponent>,
     private authService: AuthService,
     private rewardService: RewardService) { }
@@ -32,6 +34,9 @@ export class RewardCustomerComponent implements OnInit {
   public async setCode() {
     this.message = { text: '', isError: false};
     this.challenges = await this.rewardService.getCustomerRewards(this.code);
+    if (!this.challenges || !this.challenges.length) {
+      this.message = {text: this.translate.instant("User doesn't have any reward"), isError: false};
+    }
   }
 
   public close() {
@@ -48,7 +53,7 @@ export class RewardCustomerComponent implements OnInit {
     } catch (error) {
       this.message = {
         isError: true,
-        text: 'Something went wrong, please try again'
+        text: this.translate.instant('Something went wrong, please try again')
       };
       this.code = undefined;
       this.challenges = [];

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 import { AuthService } from '../../services/auth.service';
 import { ProductService } from '../../services/product.service';
@@ -27,6 +28,7 @@ export class ProviderProductComponent implements OnInit {
   };
 
   constructor(
+    public translate: TranslateService,
     private router: Router,
     private route: ActivatedRoute,
     private authService: AuthService,
@@ -63,7 +65,7 @@ export class ProviderProductComponent implements OnInit {
     this.state = 'loading';
     try {
       this.product = await this.productService.saveProduct(editProduct);
-      this.router.navigate(['profile', 'product', this.product.id]);
+      this.router.navigate(['profile', 'products']);
       this.state = 'show';
     } catch (e) {
       this.state = 'edit';

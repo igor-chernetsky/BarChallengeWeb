@@ -5,25 +5,25 @@
   <image-uploader *ngIf="state === 'edit'" (uploaded)="imageAdded($event)"></image-uploader>
 </div>
 <div class="details" *ngIf="state !== 'edit'; else providerForm">
-  <provider-logo [logo]="provider.logo" class="logo"></provider-logo>
   <div class="info">
+    <provider-logo [logo]="provider.logo" class="logo"></provider-logo>
     <div class="main-info">
       <h1>{{provider.name}}</h1>
       <div class="caption">{{provider.address}}</div>
       <div class="caption">{{provider.description}}</div>
-      <div class="actions"><button mat-button (click)="switchState('edit')">Edit</button></div>
+      <div class="actions"><button mat-button (click)="switchState('edit')">{{'Edit' | translate }}</button></div>
     </div>
-    <agm-map [latitude]="provider.lat" [longitude]="provider.lng" *ngIf="provider.lat" [zoom]="14">
-      <agm-marker [latitude]="provider.lat" [longitude]="provider.lng"></agm-marker>
-    </agm-map>
   </div>
+  <agm-map [latitude]="provider.lat" [longitude]="provider.lng" *ngIf="provider.lat" [zoom]="14">
+    <agm-marker [latitude]="provider.lat" [longitude]="provider.lng"></agm-marker>
+  </agm-map>
 </div>
 <ng-template #providerForm>
   <form class="example-form" class="edit-form" (submit)="updateProvider()" autocomplete="false">
     <div>
       <provider-logo [logo]="provider.logo" class="logo"></provider-logo>
       <div *ngIf="provider.logo; else addLogoContainer">
-        <button mat-button (click)="removeLogo()"></button>
+        <button mat-button (click)="removeLogo()">{{'Remove' | translate }}</button>
       </div>
       <ng-template #addLogoContainer>
         <image-uploader (uploaded)="logoAdded($event)"></image-uploader>
@@ -33,35 +33,35 @@
       <div class="edit-columns">
         <div class="column">
           <mat-form-field class="form-data">
-            <input matInput placeholder="Name" id="name" name="name" autocomplete="new-password"
+            <input matInput [placeholder]="'Title' | translate" id="name" name="name" autocomplete="new-password"
             [formControl]="formControls.nameFormControl" [errorStateMatcher]="errorStateMatcher">
           </mat-form-field>
           <mat-form-field class="form-data">
             <input matInput placeholder="Email" id="email" name="email" autocomplete="new-password"
             [formControl]="formControls.emailFormControl" [errorStateMatcher]="errorStateMatcher">
             <mat-error *ngIf="formControls.emailFormControl.hasError('email') && !formControls.emailFormControl.hasError('required')">
-              Please enter a valid email address
+              {{'Please enter a valid email address' | translate }}
             </mat-error>
           </mat-form-field>
           <mat-form-field class="form-data">
-            <input matInput placeholder="City" name="city" id="city" [formControl]="formControls.cityFormControl" [errorStateMatcher]="errorStateMatcher" autocomplete="new-password">
+            <input matInput [placeholder]="'City' | translate" name="city" id="city" [formControl]="formControls.cityFormControl" [errorStateMatcher]="errorStateMatcher" autocomplete="new-password">
           </mat-form-field>
           <mat-form-field class="form-data">
-            <input matInput placeholder="Address" name="address" id="address" [formControl]="formControls.addressFormControl" [errorStateMatcher]="errorStateMatcher" autocomplete="new-password">
+            <input matInput [placeholder]="'Address' | translate" name="address" id="address" [formControl]="formControls.addressFormControl" [errorStateMatcher]="errorStateMatcher" autocomplete="new-password">
           </mat-form-field>
         </div>
         <div class="column">
           <mat-form-field class="form-data">
-            <textarea matInput placeholder="Description" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
+            <textarea matInput [placeholder]="'Description' | translate" name="description" id="description" [formControl]="formControls.descriptionFormControl" [errorStateMatcher]="errorStateMatcher">
             </textarea>
           </mat-form-field>
           <mat-form-field class="form-data">
-            <input matInput placeholder="Phone" type="tel" id="phone" name="phone" autocomplete="new-password"
+            <input matInput [placeholder]="'Phone' | translate" type="tel" id="phone" name="phone" autocomplete="new-password"
             [formControl]="formControls.phoneFormControl" [errorStateMatcher]="errorStateMatcher">
           </mat-form-field>
           <div class="actions">
-            <button type="submit" mat-button>Save</button>
-            <button mat-button (click)="switchState('show')">Cancel</button>
+            <button type="submit" mat-button>{{'Save' | translate }}</button>
+            <button mat-button (click)="switchState('show')">{{'Cancel' | translate }}</button>
           </div>
         </div>
       </div>

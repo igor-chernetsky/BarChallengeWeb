@@ -3,6 +3,7 @@ import { FormControl, NgForm, Validators } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { MatDialog } from '@angular/material';
 import { ProductPickerComponent } from '../dialogs/product-picker/product-picker.component';
+import { TranslateService } from '@ngx-translate/core';
 
 import { Challenge } from '../../entities/challenge';
 import { Provider } from '../../entities/provider';
@@ -33,6 +34,7 @@ export class ChallengeComponent implements OnInit {
     private authService: AuthService,
     private providerService: ProviderService,
     private challengeService: ChallengeService,
+    public translate: TranslateService,
     public dialog: MatDialog) {}
 
   public async ngOnInit() {

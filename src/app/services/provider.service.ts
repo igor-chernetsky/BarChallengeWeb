@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Headers, Http, RequestOptions } from '@angular/http';
+import { Router } from '@angular/router';
 import { CommonService } from './common.service';
 import { StorageService } from './storage.service';
 
@@ -8,9 +9,11 @@ import { StorageService } from './storage.service';
 })
 export class ProviderService extends CommonService {
   protected apiUrl = `${process.env.API_URL}/providers`;
-  constructor(protected http: Http,
+  constructor(
+    protected router: Router,
+    protected http: Http,
     protected storageService: StorageService) {
-    super(http, storageService);
+    super(router, http, storageService);
   }
 
   public getProviders(id: number) {
@@ -19,7 +22,7 @@ export class ProviderService extends CommonService {
       .then((response) => {
         const res = response.json();
         return res;
-      });
+      }).catch(this.handleError.bind(this));;
   }
 
   public getProviderById(id: string) {
@@ -29,7 +32,7 @@ export class ProviderService extends CommonService {
       .then((response) => {
         const res = response.json();
         return res;
-      });
+      }).catch(this.handleError.bind(this));;
   }
 
   public saveProvider(id, form) {
@@ -44,7 +47,8 @@ export class ProviderService extends CommonService {
 
   public login(form) {
     const url = `${process.env.API_URL}/providers/login`;
-    this.logout();
+    this.storageService.remove('authData');
+    this.storageService.remove('currentUser');
     return this.http.post(url, form, this.getOptions())
       .toPromise()
       .then((response) => {
@@ -61,7 +65,8 @@ export class ProviderService extends CommonService {
 
   public signup(form) {
     const url = `${process.env.API_URL}/providers`;
-    this.logout();
+    this.storageService.remove('authData');
+    this.storageService.remove('currentUser');
     return this.http.post(url, form, this.getOptions())
       .toPromise()
       .then((response) => {
@@ -82,10 +87,10 @@ export class ProviderService extends CommonService {
       .toPromise()
       .then((response) => {
         const res = response.json();
-        if(res.results && res.results.length) {
+        if (res.results && res.results.length) {
           const result = res.results.find(r => r.geometry && r.geometry.location);
           return result.geometry.location;
         }
-      });
+      }).catch(this.handleError.bind(this));
   }
 }

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialogRef } from '@angular/material';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from '../../../services/auth.service';
 import { ProductService } from '../../../services/product.service';
 import { Product } from '../../../entities/product';
@@ -15,6 +16,7 @@ export class ProductPickerComponent implements OnInit {
   public listStatus = {noRedirect: true};
 
   constructor(
+    public translate: TranslateService,
     public dialogRef: MatDialogRef<ProductPickerComponent>,
     private authService: AuthService,
     private productService: ProductService) { }

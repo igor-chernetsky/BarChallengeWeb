@@ -3,6 +3,7 @@ import { FormControl, FormGroupDirective, NgForm, Validators } from '@angular/fo
 import { Router } from '@angular/router';
 import { MatDialogRef } from '@angular/material';
 import { ErrorStateMatcher } from '@angular/material/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'provider-login',
@@ -12,6 +13,7 @@ import { ErrorStateMatcher } from '@angular/material/core';
 export class ProviderLoginDialogComponent implements OnInit {
   public state = 'login';
   constructor(
+    public translate: TranslateService,
     public dialogRef: MatDialogRef<ProviderLoginDialogComponent>,
     private router: Router) { }
 

@@ -1,11 +1,11 @@
 <h2>
-  Orders
+  {{'Orders' | translate}}
 </h2>
 <table class="white-table">
   <thead>
-    <th>Product</th>
-    <th>Client Code</th>
-    <th>Order Date</th>
+    <th>{{'Product' | translate}}</th>
+    <th>{{'Client Code' | translate}}</th>
+    <th>{{'Order Date' | translate}}</th>
     <th></th>
   </thead>
   <tr *ngFor="let purchase of purchases">
@@ -18,7 +18,7 @@
     </td>
     <td>{{purchase.customerId}}</td>
     <td>{{purchase.createdAt | dater}}</td>
-    <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
+    <td class="centered"><button mat-button (click)="removePurchase(purchase)">{{'Remove' | translate}}</button></td>
   </tr>
 </table>
 
@@ -27,9 +27,9 @@
 </h2>
 <table class="white-table">
   <thead>
-    <th>Challenge</th>
-    <th>Client Code</th>
-    <th>Rewards</th>
+    <th>{{'Challenge' | translate}}</th>
+    <th>{{'Client Code' | translate}}</th>
+    <th>{{'Rewards' | translate}}</th>
     <th></th>
   </thead>
   <tr *ngFor="let challenge of challenges">
@@ -43,6 +43,6 @@
         {{product.name}}
       </div>
     </td>
-    <td class="centered"><button mat-button (click)="removePurchase(purchase)">Remove</button></td>
+    <td class="centered"><button mat-button (click)="removePurchase(purchase)">{{'Remove' | translate}}</button></td>
   </tr>
 </table>

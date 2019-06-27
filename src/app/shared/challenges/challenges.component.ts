@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'challenges',
@@ -9,7 +10,8 @@ export class ChallengesComponent implements OnInit {
   @Input() public challenges: any[] = [];
   @Input() public providerMode: boolean;
 
-  constructor() { }
+  constructor(
+    public translate: TranslateService) { }
 
   public async ngOnInit() {
   }

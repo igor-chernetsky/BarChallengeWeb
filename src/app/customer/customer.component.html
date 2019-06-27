@@ -6,21 +6,27 @@
         <ul class="nav-links">
           <ng-container *ngIf="!customer?.id; else userBlock">
             <li>
-              <a mat-button (click)="openProviderLogin()">Login as Bar</a>
+              <localization></localization>
             </li>
             <li>
-              <a mat-button (click)="openLogin()">Login</a>
+              <a mat-button (click)="openProviderLogin()">{{'Login as Provider' | translate}}</a>
+            </li>
+            <li>
+              <a mat-button (click)="openLogin()">{{'Login' | translate}}</a>
             </li>
           </ng-container>
           <ng-template #userBlock>
             <li>
-              <div class="id-title">YOUR CODE: <b>{{customer.id}}</b></div>
+              <div class="id-title">{{'YOUR CODE:' | translate}} <b>{{customer.id}}</b></div>
             </li>
             <li>
-              <a mat-button [routerLink]="['/orders']">Orders</a>
+              <localization></localization>
             </li>
             <li>
-              <a mat-button (click)="logout()">Logout</a>
+              <a mat-button [routerLink]="['/orders']">{{'Orders' | translate}}</a>
+            </li>
+            <li>
+              <a mat-button (click)="logout()">{{'Logout' | translate}}</a>
             </li>
           </ng-template>
         </ul>

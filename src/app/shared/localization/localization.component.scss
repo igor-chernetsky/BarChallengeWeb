@@ -1,0 +1,29 @@
+.container {
+  height: 36px;
+}
+
+.mat-button {
+  height: 36px;
+}
+
+.lang-icon {
+  width: 28px;
+  height: 20px;
+  display: block;
+  background-size: cover;
+  background-position: center;
+  margin: 5px 0;
+  &.ru {
+    background-image: url('/assets/img/ru.svg');
+  }
+  &.en {
+    background-image: url('/assets/img/gb.svg');
+  }
+}
+
+.mat-menu-item {
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
